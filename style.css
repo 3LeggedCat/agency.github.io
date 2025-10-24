@@ -1,0 +1,965 @@
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  border: none;
+} */
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+menu:not(article menu),
+ol:not(article ol),
+ul:not(article ul) {
+  list-style: none;
+}
+
+@font-face {
+  font-family: "NovesseMain"; /* set name */
+  src: url(fonts/Grumpy_W05_Black36.ttf); /* url of the font */
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url(fonts/OpenSans-Regular.ttf);
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url(fonts/OpenSans-Bold.ttf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url(fonts/OpenSans-Italic.ttf);
+  font-style: italic;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.novesseSection {
+  min-height: 100vh;
+  width: 100%;
+  background-color: white;  
+}
+
+#section1 {
+  background: url(images/image1.png) center / cover no-repeat;
+}
+
+#intro-text {
+  position: absolute;
+  bottom: 15%;
+  left: 15%;
+  width: 600px;
+  background-color: antiquewhite;
+  color: black;
+  font-family: NovesseMain;
+  font-size: 3em;
+}
+
+#intro-text p::after {
+  content: ""; /* Required for a pseudo-element to be generated */
+  position: absolute;
+  width: 100%;
+  height: 12px; /* Thickness of the underbar */
+  bottom: -20px;
+  left: 0;
+  background-color: deeppink; /* Color of the underbar */
+}
+
+#intro-text span {
+  color: deeppink;
+}
+
+#section2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 36px;
+  background: url(images/wave_patterns.jpg) center / cover no-repeat;
+}
+
+#rect1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  height: 1000px;
+  flex: 1;
+}
+
+#rect1-bg {
+  max-width: 800px;
+  height: min-content;
+  background: url(images/rect1.png) center / cover no-repeat;
+  border-radius: 10px;
+  padding: 6px;
+  padding-top: 3px;
+  padding-left: 24px;
+  padding-right: 140px;
+}
+
+#rect1-bg h1 {
+  font-family: NovesseMain;
+  font-size: 2.2em;
+}
+
+#rect1-bg p {
+  font-family: OpenSans;
+  font-size: 1.3em;
+  color: black;
+}
+
+#photos-n-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#photos {
+  position: relative;
+  left: -300px;
+  display: flex;
+  flex-direction: row;
+  height: 1200px;
+  flex: 1;
+}
+
+.photo {
+  background-color: blueviolet;
+  height: 800px;
+  width: 450px;
+  margin: 12px;
+}
+
+#photo1 {
+  background: url(images/image2.jpg) center / cover no-repeat;
+}
+
+#photo2 {
+  background: url(images/image3.jpg) center / cover no-repeat;
+}
+
+#find-donor-button:hover {
+  background-color: deeppink;
+  cursor: pointer;
+}
+
+#find-donor-button {
+  position: relative;
+  left: -30%;
+  margin-top: 48px;
+  font-family: OpenSans;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  background-color: black;
+  padding: 12px 24px;
+  border-radius: 10px;
+  width: min-content;
+  min-width: 220px;
+}
+
+#rect1-white-border {
+  z-index: 1;
+  position: relative;
+  top: -70px;
+  left: 150px;
+  border-radius: 30px;
+  border: 3px solid white;
+  padding: 16px;
+}
+
+/**** MEDIA QUERY FOR FULL HD DISPLAYS *****/
+@media screen and (max-width: 1920px) {
+  #photos {
+    position: relative;
+    left: -100px;
+    display: flex;
+    flex-direction: row;
+    height: 1000px;
+    flex: 1;
+  }
+
+  .photo {
+    background-color: blueviolet;
+    height: 700px;
+    width: 450px;
+    margin: 12px;
+  }
+
+  #find-donor-button {
+    position: relative;
+    left: -10%;
+    margin-top: 48px;
+    font-family: OpenSans;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    background-color: black;
+    padding: 12px 24px;
+    border-radius: 10px;
+    width: min-content;
+    min-width: 220px;
+  }
+
+  #rect1-white-border {
+    z-index: 1;
+    position: relative;
+    top: -70px;
+    left: 100px;
+    border-radius: 30px;
+    border: 3px solid white;
+    padding: 16px;
+  }
+}
+
+/***************************************************/
+/*****************  SECTION 3  *********************/
+/***************************************************/
+
+#section3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 36px;
+  background: url(images/image4.png) center / cover no-repeat;
+}
+
+#section3-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 1800px;
+  height: 1000px;
+}
+
+#section3-text {
+  flex: 3;
+  height: 70%;
+  padding: 48px;
+  color: white;
+  box-sizing: border-box;
+}
+
+#section3-text h1 {
+  font-family: "NovesseMain";
+  font-size: 3em;
+}
+
+#section3-text p {
+  font-family: OpenSans;
+  font-size: 2em;
+}
+
+#section3-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 48px;
+  margin-top: 80px;
+}
+
+.section3-icon {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  padding: 20px;
+  width: 160px;
+  height: 160px;
+  border-radius: 100px;
+  border: 2px solid white;
+  transition: 0.5s;
+}
+
+.section3-icon h2 {
+  color: white;
+  text-align: center;
+  font-family: OpenSans;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.section3-icon:hover {
+  background-color: white;
+}
+
+#icon1 {
+  background: url(images/clinics_icon.png) center / 80% no-repeat;
+}
+
+#icon2 {
+  background: url(images/frozen_icon.png) center / 80% no-repeat;
+}
+
+#icon3 {
+  background: url(images/dna_icon.png) center / 80% no-repeat;
+}
+
+#icon4 {
+  background: url(images/match_icon.png) center / 80% no-repeat;
+}
+
+#section3-button {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+#section3-button p {
+  color: white;
+  font-family: OpenSans;
+  font-weight: bold;
+  padding: 12px 24px;
+  background-color: black;
+  margin-left: 24px;
+  border-radius: 8px;
+}
+
+#section3-button p:hover {
+  background-color: deeppink;
+  color: white;
+  cursor: pointer;
+}
+
+/***************************************************/
+/******************** SECTION 4  *******************/
+/***************************************************/
+
+#section4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 36px;
+  background-color: #a8644eff;
+  color: white;
+}
+
+#section4-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 1800px;
+  height: 1000px;
+}
+
+#section4-image {
+  display: flex;
+  height: 100%;
+  flex: 2;
+  background: url(images/image5.png) center / cover no-repeat;
+}
+
+#section4-info {
+  box-sizing: border-box;
+  padding: 0 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 70%;
+  flex: 3;
+}
+
+#section4-info h1 {
+  font-family: NovesseMain;
+  letter-spacing: 4px;
+  font-size: 4em;
+}
+
+#section4-info p {
+  font-family: OpenSans;
+  font-size: 1.4em;
+}
+
+#section4-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+#section4-items p {
+  font-family: OpenSans;
+  inline-size: min-content;
+  padding: 12px;
+  border-radius: 30px;
+  border: 2px solid white;
+  margin: 12px;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+#section4-items p:hover {
+  cursor: pointer;
+  background-color: white;
+  color: deeppink;
+}
+
+/***************************************************/
+/******************** SECTION 5  *******************/
+/***************************************************/
+
+#section5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 36px;
+  background: url(images/image6.png) center / cover no-repeat;
+}
+
+#section5-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 1800px;
+  height: 1000px;  
+}
+
+#section5-info {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 80%;  
+  padding: 24px;
+}
+
+#section5-info h1 {
+  font-family: NovesseMain;
+  letter-spacing: 2px;
+  font-size: 2.5em;
+}
+
+.highlight {
+  display: inline-block;
+  padding: 0.25em 0;
+  background: #ffc107;
+}
+
+#section5-info p {
+  font-family: OpenSans;
+  font-size: 1.4em;
+}
+
+#section5-info p span {
+  color: deeppink;
+  font-weight: bold;
+}
+
+#donor-onboard {
+  border-radius: 10px;
+  background-color: #d6c8bfff;
+  height: 300px;
+  width: 500px;
+  font-family: OpenSans;
+}
+
+#donor-onboard img {
+  height: 80%;
+  float: right;
+}
+
+#onboard-info {
+  box-sizing: border-box;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+}
+
+#onboard-info h3 {
+  font-size: 1.65em;
+}
+
+#onboard-duration {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+}
+
+#onboard-duration p {
+  margin-left: 8px;
+  color: black;
+}
+
+#onboard-button {
+  color: white;
+  font-family: OpenSans;
+  font-weight: bold;
+  padding: 12px 18px;
+  background-color: black;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+#onboard-button:hover {
+  background-color: deeppink;
+  color: white;
+  cursor: pointer;
+}
+
+#section5-collage {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 2;
+  height: 100%;
+  background: url(images/collage.png) center / contain no-repeat;
+}
+
+/***************************************************/
+/******************** SECTION 6  *******************/
+/***************************************************/
+
+#section6 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 36px;
+  background: url(images/image7.png) center / cover no-repeat;
+  z-index: 3;
+}
+
+#section6-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1800px;
+  height: 1000px;
+}
+
+#section6-inner {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  width: 60%;
+}
+
+#section6-inner h1 {
+  font-family: NovesseMain;
+  letter-spacing: 2px;
+  font-size: 4em;
+  margin: 0;
+  color: white;
+}
+
+#section6-inner h2 {
+  font-family: OpenSans;
+  font-weight: normal;
+  font-size: 1.4em;
+  color: white;
+}
+
+#section6-inner p {
+  font-family: OpenSans;
+  font-size: 1.4em;
+  color: white;
+}
+
+#section6-form {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  min-height: 60%;
+  width: 100%;
+}
+
+#section6-form-blocks {
+  box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+#section6-form-blockA {
+  box-sizing: border-box;
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#section6-form-blockB {
+  box-sizing: border-box;
+  padding: 24px;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"] {
+  background: transparent;
+  border: none;
+  margin: 20px;
+  font-size: 1em;
+  border-bottom: 1px solid #000000;
+}
+
+input[type="email"] {
+  background: transparent;
+  border: none;
+  margin: 20px;
+  border-bottom: 1px solid #000000;
+}
+
+input[type="tel"] {
+  background: transparent;
+  border: none;
+  margin: 20px;
+  font-size: 1em;
+  border-bottom: 1px solid #000000;
+}
+
+input::placeholder {
+  font-weight: bold;
+  opacity: 0.5;
+  color: gray;
+}
+
+textarea::placeholder {
+  font-weight: bold;
+  opacity: 0.5;
+  color: gray;
+  font-size: 1em;
+  font-family: OpenSans;
+}
+
+textarea {
+  background: transparent;
+  border: none;
+  margin: 20px;
+  font-size: 1em;
+  border-bottom: 1px solid #000000;
+}
+
+#blog-button {
+  color: white;
+  font-family: OpenSans;
+  font-weight: bold;
+  padding: 12px 24px;
+  background-color: black;
+  margin-left: 24px;
+  border-radius: 8px;
+}
+
+#blog-button:hover {
+  background-color: deeppink;
+  color: white;
+  cursor: pointer;
+}
+
+#submit-button {
+  color: black !important;
+  align-self: center;
+  font-family: OpenSans;
+  font-weight: bold;
+  padding: 12px 24px; 
+  border-radius: 8px;
+  white-space: nowrap !important;
+  max-width: min-content;
+  border: 2px solid black;
+}
+
+#submit-button:hover {
+  background-color: deeppink;
+  color: white !important;
+  cursor: pointer;
+}
+
+/***************************************************/
+/******************** SECTION 7  *******************/
+/***************************************************/
+
+#section7 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 36px;
+  background: #f4e3d7ff url(images/gradient.png) center / cover no-repeat;
+  min-height: 40vh;
+  width: 100%;  
+}
+
+#section7-container {
+  box-sizing: border-box;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1800px;
+  height: 1000px;
+}
+
+#section7-container h1 {
+  font-family: "NovesseMain";
+  font-size: 3em;
+}
+
+.marquee {
+  height: 250px;
+  width: 80%;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee .lining {
+  display: block;
+  width: 200%;
+  height: 250px;
+
+  position: absolute;
+  overflow: hidden;
+
+  animation: marquee 15s linear infinite;
+}
+
+.marquee .partner-logo {
+  float: left;
+  height: 200px;
+  width: 200px;
+  margin: 25px 75px;
+  background-color: darkorange;
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+#partner01 {
+  background: url(images/partners/partner-01.png) center / contain no-repeat;
+}
+
+#partner02 {
+  background: url(images/partners/partner-02.png) center / contain no-repeat;
+}
+
+#partner03 {
+  background: url(images/partners/partner-03.png) center / contain no-repeat;
+}
+
+#partner04 {
+  background: url(images/partners/partner-04.png) center / contain no-repeat;
+}
+
+#partner05 {
+  background: url(images/partners/partner-05.png) center / contain no-repeat;
+}
+
+#partner06 {
+  background: url(images/partners/partner-06.png) center / contain no-repeat;
+}
+
+#partner07 {
+  background: url(images/partners/partner-07.png) center / contain no-repeat;
+}
+
+#partner08 {
+  background: url(images/partners/partner-08.png) center / contain no-repeat;
+}
+
+#partner09 {
+  background: url(images/partners/partner-09.png) center / contain no-repeat;
+}
+
+#partner10 {
+  background: url(images/partners/partner-10.png) center / contain no-repeat;
+}
+
+/***************************************************/
+/********************* FOOTER  *********************/
+/***************************************************/
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  background-color: #f4e3d7ff;
+  min-height: 33vh;
+  width: 100%;  
+}
+
+#footer-container {
+  width: 1400px;
+  height: 700px;
+  background: url(images/footer.png) center / contain no-repeat;
+}
+
+/***************************************************/
+/************** GENERAL CSS RULES  *****************/
+/***************************************************/
+
+header {
+  z-index: 99999;
+  transition: all 0.3s ease 0s;
+  position: fixed;
+  width: 100%;
+  margin: 0 auto;
+  top: 24px;
+  height: 100px;
+  width: 100%;
+}
+
+#container {
+  width: 1400px;
+  height: 100%;
+  margin: 0 auto; /* centers the inner content */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; /* center links inside container */
+  align-items: center;
+  border-radius: 10px;
+
+  /*  
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+
+  /* Initial transparent state */
+  background-color: transparent;
+
+  /* Smooth transition for background changes */
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Class added when scrolled */
+#container.scrolled {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* White with slight transparency */
+  backdrop-filter: blur(10px); /* Optional: adds a nice blur effect */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Optional: adds subtle shadow */
+}
+
+/* Optional: Different text colors for each state */
+#nav-items ul li a {
+  color: #fff; /* White text on transparent background */
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#nav-items.scrolled ul li a {
+  position: relative;
+  text-decoration: none;
+  color: black; /* Dark text on white background */
+}
+
+#nav-logo {
+  width: 200px;
+  height: 100%;
+  background: url(images/logo_800px.png) center / contain no-repeat;
+}
+
+#nav-items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#nav-items ul {
+  display: flex;
+  flex-direction: row;
+}
+
+#nav-items ul li {
+  font-family: "OpenSans";
+  font-weight: bold;
+  font-size: 1em;
+  margin: 2em;
+  cursor: pointer;
+  color: black;
+}
+
+#nav-items ul li a:hover {
+  color: deeppink;
+}
+
+/* The pseudo-element that will become the underbar */
+#nav-items ul li a::after {
+  content: ""; /* Required for a pseudo-element to be generated */
+  position: absolute;
+  width: 100%;
+  height: 4px; /* Thickness of the underbar */
+  bottom: -5px;
+  left: 0;
+  background-color: deeppink; /* Color of the underbar */
+
+  /* --- The Magic --- */
+  transform: scaleX(0); /* Initially, the underbar is scaled to 0 width */
+  transform-origin: bottom right; /* Set the origin for the transform */
+  transition: transform 0.25s ease-out; /* Animate the transform property */
+}
+
+/* On hover, scale the underbar back to 100% width */
+#nav-items ul li a:hover::after {
+  color: deeppink;
+  transform: scaleX(1); /* Scale to full width on hover */
+  transform-origin: bottom left; /* Change origin to create a "wipe" effect */
+}
+
+#signin-button {
+  color: white;
+  font-family: OpenSans;
+  font-weight: bold;
+  padding: 12px 24px;
+  background-color: black;
+  margin-left: 24px;
+  border-radius: 8px;
+}
+
+#signin-button:hover {
+  background-color: deeppink;
+  color: white;
+  cursor: pointer;
+}
