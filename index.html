@@ -27,16 +27,14 @@
     <link rel="manifest" href="images/favicon/site.webmanifest" />
   </head>
   <body>
-    <script src="index.js"></script>
-
     <header id="header">
       <div id="container">
         <a href="index.html"><div id="nav-logo"></div></a>
         <div id="nav-items">
           <ul>
-            <li><a>Who We Are</a></li>
+            <li><a href="who_we_are.html">Who We Are</a></li>
             <li><a href="egg_donors.html">Egg Donation</a></li>
-            <li><a>Intended Parents</a></li>
+            <li><a href="intended_parents.html">Intended Parents</a></li>
             <li><a>Our Partners</a></li>
             <li><a>Blog</a></li>
           </ul>
@@ -46,12 +44,18 @@
     </header>
 
     <div id="content">
-      <div id="section1" class="novesseSection">
-        <div id="intro-text">
-          <p>The most noble journey: <span>helping families bloom.</span></p>
+      <div class="hero-section">
+        <div class="hero-section_player-wrapper">
+          <video autoplay muted loop class="hero_video-player index-player">
+            <source src="videos/mother_n_baby.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="hero-section_intro-text" id="index-text">
+          <h1>The most noble journey:<br />helping families bloom.</h1>
+          <div id="index-bottom"></div>
         </div>
       </div>
-      <div id="section2" class="novesseSection">
+      <div class="novesseSection" id="section2">
         <div id="rect1">
           <div id="rect1-white-border">
             <div id="rect1-bg">
@@ -72,7 +76,7 @@
           <p id="find-donor-button">Find your Perfect Donor &rsaquo;</p>
         </div>
       </div>
-      <div id="section3" class="novesseSection">
+      <div class="novesseSection" id="section3">
         <div id="section3-container">
           <div id="section3-text">
             <h1>
@@ -239,7 +243,7 @@
       </div>
     </div>
 
-    <footer><div id="footer-container"></div></footer>
+    <footer style="margin-top: 0px"><div id="footer-container"></div></footer>
     <script>
       // Get the navbar element
       const navbar = document.getElementById("nav-items");

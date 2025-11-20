@@ -12,6 +12,7 @@ html,
 body {
   margin: 0;
   height: 100%;
+  background-color: #dde3e8ff;
 }
 
 img {
@@ -58,42 +59,133 @@ ul:not(article ul) {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #dde3e8ff;
 }
 
 .novesseSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
   width: 100%;
-  background-color: white;
+  /* border: 8px dashed purple; */
 }
+
+/**************************************/
+
+.hero-section {
+  box-sizing: border-box;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+  height: 100vh;
+  width: 100%;
+  /* border: 8px dashed blue; */
+}
+
+.hero-section_player-wrapper {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;  
+}
+
+.hero_video-player {
+  top: 0;
+  left: 0;
+  width: 100%;  
+}
+
+.index-player {
+  margin-top: -7.7%;
+  width: 105vw;
+}
+
+.hero-section_intro-text {
+  width: 60%;
+  margin-top: 200px;
+  margin-left: -500px;
+  height: 150px;
+  z-index: 2;
+  color: white;  
+}
+
+.hero-section_intro-text h1 {
+  font-family: NovesseMain;
+  font-size: 4em;
+  color: white;
+}
+
+.hero-section_intro-text p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: OpenSans;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.3em;
+  background: url(images/path_hero_donors.png) center / contain no-repeat;
+  width: 35%;
+  height: 200px;
+  /* border: 2px dashed yellow; */
+}
+
+#index-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: 2px dashed cyan; */
+}
+
+#index-bottom {
+  margin-top: -50px;
+  width: 50%;
+  min-height: 20px;
+  background-color: deeppink;
+}
+
+/**************************************/
+
+/* #section1 {
+  background: url(images/image1.png) center / cover no-repeat;
+} 
 
 #section1 {
-  background: url(images/image1.png) center / cover no-repeat;
-}
+  box-sizing: border-box;  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 36px;
+  background-color: bisque;
+} */
 
-#intro-text {
-  position: absolute;
-  bottom: 15%;
-  left: 15%;
+/* #intro-text {
   width: 600px;
-  background-color: antiquewhite;
-  color: black;
+  color: white;
   font-family: NovesseMain;
   font-size: 3em;
 }
 
 #intro-text p::after {
-  content: ""; /* Required for a pseudo-element to be generated */
+  content: ""; 
   position: absolute;
   width: 100%;
-  height: 12px; /* Thickness of the underbar */
+  height: 12px;
   bottom: -20px;
   left: 0;
-  background-color: deeppink; /* Color of the underbar */
+  background-color: deeppink; 
 }
 
 #intro-text span {
   color: deeppink;
 }
+
+*/
 
 #section2 {
   display: flex;
@@ -193,50 +285,6 @@ ul:not(article ul) {
   border-radius: 30px;
   border: 3px solid white;
   padding: 16px;
-}
-
-/**** MEDIA QUERY FOR FULL HD DISPLAYS *****/
-@media screen and (max-width: 1920px) {
-  #photos {
-    position: relative;
-    left: -100px;
-    display: flex;
-    flex-direction: row;
-    height: 1000px;
-    flex: 1;
-  }
-
-  .photo {
-    background-color: blueviolet;
-    height: 700px;
-    width: 450px;
-    margin: 12px;
-  }
-
-  #find-donor-button {
-    position: relative;
-    left: -10%;
-    margin-top: 48px;
-    font-family: OpenSans;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    background-color: black;
-    padding: 12px 24px;
-    border-radius: 10px;
-    width: min-content;
-    min-width: 220px;
-  }
-
-  #rect1-white-border {
-    z-index: 1;
-    position: relative;
-    top: -70px;
-    left: 100px;
-    border-radius: 30px;
-    border: 3px solid white;
-    padding: 16px;
-  }
 }
 
 /***************************************************/
@@ -829,6 +877,7 @@ footer {
   background-color: #f4e3d7ff;
   min-height: 33vh;
   width: 100%;
+  margin-top: 128px;
 }
 
 #footer-container {
@@ -980,7 +1029,6 @@ header {
 
 #donors_section1 {
   box-sizing: border-box;
-  background: url(images/egg_donors_hero_image.png) center / cover no-repeat;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1036,7 +1084,21 @@ header {
   width: 1400px;
   min-height: 550px;
   margin: 36px;
-  /* border: 2px dashed red; */
+  /* border: 4px dashed red; */
+}
+
+.content-stack-inner {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px dashed orange; */
+}
+
+#wwa-content-wrapper {
+  flex-direction: column;
+  background: url(images/chocolate_waves.png) top / contain no-repeat;
 }
 
 #donors_the-beginning {
@@ -1050,15 +1112,6 @@ header {
   margin-top: 100px;
   background: url(images/waves_background_1.png) center / cover no-repeat;
   background-color: #f3fcffff;
-}
-
-.content-stack-inner {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  /* border: 2px dashed red; */
 }
 
 #the-beginning-inner1 {
@@ -1333,9 +1386,662 @@ header {
   position: absolute;
   top: -200px;
   left: 0;
-  z-index: -1;  
+  z-index: -1;
   height: 100%;
   width: 100vw; /* 100 * 16 / 9 */
   min-width: 100%;
   min-height: 146vh; /* 100 * 9 / 16 */
+}
+
+/****************************************************/
+/******************** WHO WE ARE ********************/
+/****************************************************/
+
+#wwa-hero {
+  background: url(images/hero-who_we_are.jpg) center / cover no-repeat;
+}
+
+#wwa-hero-text p {
+  background: url(images/path_hero_wwa.png) center / contain no-repeat;
+}
+
+#wwa-hero-text h1 {
+  color: black;
+}
+
+#wwa-inner2 {
+}
+
+.wwa-stack-inner {
+  box-sizing: border-box;
+  flex: 1;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  /* border: 2px dashed orange; */
+  margin: 12px;
+}
+
+#wwa-form {
+  box-sizing: border-box;
+  padding: 36px;
+}
+
+#wwa-form input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  background-color: white;
+  border: none;
+  font-family: OpenSans;
+  font-size: 1em;
+  width: 100%;
+  height: 2em;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+#wwa-form textarea {
+  background-color: white;
+  border: none;
+  font-family: OpenSans;
+  font-size: 1em;
+  width: 100%;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+#wwa-form h2 {
+  font-family: NovesseMain;
+  font-size: 2em;
+  background: url(images/scribble.png) center / contain no-repeat;
+  padding: 48px;
+  /* border: 1px dashed green; */
+}
+
+#wwa-form p {
+  font-family: Caslon3;
+  font-size: 1.5em;
+}
+
+#wwa-map iframe {
+  width: 100%;
+  min-height: 800px;
+}
+
+#wwa-inner1 {
+  background: url(images/logo_white.png) center / contain no-repeat;
+  height: 450px;
+}
+
+#wwa-inner2 {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+#wwa-inner2 h2 {
+  font-family: Caslon3;
+  font-size: 2.5em;
+}
+
+#wwa-inner2 p {
+  font-family: OpenSans;
+  font-size: 1.33em;
+}
+
+#wwa-inner3 {
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 24px;
+  color: white;
+  background-color: #00000050;
+}
+
+#wwa-inner3 h2 {
+  font-family: Caslon3;
+  font-size: 2em;
+}
+
+#wwa-inner3 p {
+  font-family: OpenSans;
+  font-size: 1.1em;
+}
+
+#wwa-inner4 {
+  background: url(images/wwa-hands-n-heart.png) center / contain no-repeat;
+  height: 550px;
+}
+
+#wwa-role {
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-top: 100px;
+  background: url(images/waves_background_2.png) center / cover no-repeat;
+  background-color: #dbdbe3ff;
+}
+
+#wwa-role-inner2 {
+  flex: 2.5;
+  display: flex;
+  padding: 36px;
+  flex-direction: column;
+  align-items: center;
+}
+
+#wwa-role-inner2 h1 {
+  color: darkblue;
+  font-family: NovesseMain;
+  font-size: 2em;
+}
+
+#wwa-role-inner2 p {
+  font-family: OpenSans;
+  font-size: 1.33em;
+  color: black;
+}
+
+#wwa-role-inner1 {
+  flex: 1;
+  height: 550px;
+  background: url(images/parents_w_baby.png) center / cover no-repeat;
+}
+
+#wwa-work-inner1 {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  flex: 1;
+  background-color: #f4e3d7ff;
+  color: #784421ff;
+  font-family: NovesseMain;
+  font-size: 2em;
+  padding: 36px;
+  margin-right: 24px;
+}
+
+#wwa-work-inner2 {
+  flex: 2;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+#wwa-work-inner2 p {
+  color: #333333ff;
+  text-align: center;
+  font-size: 1.4em;
+  font-family: Caslon3;
+  margin: 50px 0px;
+}
+
+#wwa-work-inner2::after {
+  content: ""; /* Required for a pseudo-element to be generated */
+  width: 70%;
+  height: 6px; /* Thickness of the underbar */
+  bottom: 50px;
+  left: 0;
+  background-color: #b7c4c8ff; /* Color of the underbar */
+}
+
+#wwa-work-inner2::before {
+  content: ""; /* Required for a pseudo-element to be generated */
+  width: 70%;
+  height: 6px; /* Thickness of the underbar */
+  background-color: #b7c4c8ff; /* Color of the underbar */
+}
+
+.fullwidth-stack {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  margin: 36px;
+  /* border: 4px dashed deeppink; */
+}
+
+#curated-stack {
+  background: url(images/curated_db.jpg) center / cover no-repeat;
+}
+
+#curated-inner {
+  box-sizing: border-box;
+  padding: 24px;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-end;
+  text-align: center;
+  width: 40%;
+  margin-right: 100px;
+  margin-top: 100px;
+  background: #ffffff30;
+}
+
+#curated-inner h2 {
+  font-family: NovesseMain;
+  font-size: 2em;
+}
+
+#curated-inner p {
+  font-family: OpenSans;
+  font-size: 1.5em;
+}
+
+/* .gradient-stack {
+  height: 1000px !important;
+  top: -700px;
+  position: relative;
+  z-index: -1;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 36px;
+  border: 2px dashed black;
+  background: url(images/bottom_gradient.png) center / cover no-repeat;
+} */
+
+/****************************************************/
+/******************** FOR INTENDED ******************/
+/********************** PARENTS  ********************/
+/****************************************************/
+
+#fip-hero {
+  background: url(images/fip_hero_image.png) center / cover no-repeat;
+  flex-direction: column;
+}
+
+#fip-hero-text {
+  align-self: flex-end;
+  align-items: start;
+  width: min-content;
+  min-width: 1000px;
+  margin-top: -150px;
+  /* border: 2px dashed magenta; */
+}
+
+#fip-hero-text p {
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: OpenSans;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.3em;
+  
+  width: 35%;
+  height: 200px; */
+  width: 70%;
+  height: 250px;
+  background: url(images/path_hero_fip.png) center / contain no-repeat;
+  color: black;
+  /* border: 2px dashed yellow; */
+}
+
+.general-stack-inner {
+  box-sizing: border-box;
+  flex: 1;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  /* border: 2px dashed orange; */
+  margin: 12px;
+}
+
+.general-content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0px;
+  width: 100%;
+  /* border: 8px dashed purple; */
+}
+
+#fip-inner1 {
+  background: url(images/fip_consultation.png) center / contain no-repeat;
+  height: 500px;
+  flex: 2.5;
+}
+
+#fip-inner2 {
+  flex: 2;
+}
+
+#fip-inner2 h2 {
+  font-family: Caslon3;
+  font-size: 2.5em;
+}
+
+#fip-inner2 p {
+  font-family: OpenSans;
+  font-size: 1.5em;
+}
+
+#fip-benefits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 36px;
+  color: black;
+  font-family: OpenSans;
+}
+
+#fip-benefits h1 {
+  font-weight: bold;
+  font-size: 2em;
+  margin-top: 36px;
+  text-align: center;
+}
+
+#fip-benefits p {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+#fip-benefits h2 {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+#matching-icon {
+  background: url(images/fip_matching.png) center / contain no-repeat;
+}
+
+#screening-icon {
+  background: url(images/fip_screening.png) center / contain no-repeat;
+}
+
+#coordinator-icon {
+  background: url(images/fip_coordinator.png) center / contain no-repeat;
+}
+
+#fip-legal-icon {
+  background: url(images/fip_legal.png) center / contain no-repeat;
+}
+
+#fees-icon {
+  background: url(images/fip_fees.png) center / contain no-repeat;
+}
+
+#clinic-icon {
+  background: url(images/fip_clinic.png) center / contain no-repeat;
+}
+
+#privacy-icon {
+  background: url(images/fip_privacy.png) center / contain no-repeat;
+}
+
+#fip-benefits::before {
+  content: ""; /* Required for a pseudo-element to be generated */
+  width: 40%;
+  height: 6px; /* Thickness of the underbar */
+  margin: 36px;
+  background-color: #b7c4c8ff; /* Color of the underbar */
+}
+
+#fip-benefits::after {
+  content: ""; /* Required for a pseudo-element to be generated */
+  width: 40%;
+  height: 6px; /* Thickness of the underbar */
+  margin: 36px;
+  background-color: #b7c4c8ff; /* Color of the underbar */
+}
+
+#fip-process {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
+  /* border: 2px dashed brown; */
+}
+
+#fip-process h1 {
+  font-family: NovesseMain;
+  font-size: 2.5em;
+  margin: 64px 0px;
+}
+
+.fip-process-text {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* border: 2px dashed brown; */
+}
+
+.fip-process-text h2 {
+  font-family: Caslon3;
+  font-size: 2em;
+}
+
+.fip-process-text p {
+  font-family: OpenSans;
+  font-size: 1.2em;
+}
+
+.fip-process-item {
+  box-sizing: border-box;
+  display: flex;
+  width: 60%;
+  flex-direction: row;
+  align-items: center;
+  margin: 16px;
+  /* border: 2px dashed blue; */
+}
+
+.fip-process-number {
+  height: 128px;
+  width: 128px;
+}
+
+.fip-process-itemA {
+  align-self: start;
+}
+
+.fip-process-itemB {
+  align-self: end;
+}
+
+#fip-exclusive {
+  background: url(images/fip_exclusive.png) center / cover no-repeat;
+  padding: 0 256px;
+}
+
+#fip-exclusive-inner {
+  color: white;
+  box-sizing: border-box;
+  padding: 24px;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-start;
+  text-align: center;
+  width: 35%;
+  margin-right: 100px;
+  margin-top: 100px;
+  background: #ffffff30;
+}
+
+#fip-exclusive-inner h2 {
+  font-family: NovesseMain;
+  font-size: 2em;
+}
+
+#fip-exclusive-inner p {
+  font-family: OpenSans;
+  font-size: 1.5em;
+}
+
+#fip-journey {
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-top: 100px;
+  background: url(images/waves_background_3.png) center / cover no-repeat;
+  background-color: #1c2422ff;
+}
+
+#fip-journey-inner2 {
+  flex: 2.5;
+  display: flex;
+  padding: 36px;
+  flex-direction: column;
+  align-items: center;
+}
+
+#fip-journey-inner2 h1 {
+  color: darkblue;
+  font-family: NovesseMain;
+  font-size: 2em;
+  color: white;
+}
+
+#fip-journey-inner2 p {
+  font-family: OpenSans;
+  font-size: 1.33em;
+  color: white;
+}
+
+#fip-journey-inner1 {
+  flex: 1;
+  height: 550px;
+  background: url(images/fip_bw_baby.png) center / cover no-repeat;
+}
+
+#fip-science-inner1 {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  flex: 1;
+  background-color: #dbdbe3ff;
+  color: black;
+  font-family: NovesseMain;
+  font-size: 2.33em;
+  padding: 36px;
+  margin-right: 24px;
+}
+
+#fip-science-inner2 {
+  flex: 2;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+#fip-science-inner2 p {
+  color: #333333ff;
+  text-align: center;
+  font-size: 1.4em;
+  font-family: Caslon3;
+  margin: 50px 0px;
+}
+
+#fip-science-inner2::after {
+  content: ""; /* Required for a pseudo-element to be generated */
+  width: 70%;
+  height: 6px; /* Thickness of the underbar */
+  bottom: 50px;
+  left: 0;
+  background-color: #b7c4c8ff; /* Color of the underbar */
+}
+
+#fip-science-inner2::before {
+  content: ""; /* Required for a pseudo-element to be generated */
+  width: 70%;
+  height: 6px; /* Thickness of the underbar */
+  background-color: #b7c4c8ff; /* Color of the underbar */
+}
+
+#fip-brown {
+  background: url(images/brown_tint_baby.png) center / cover no-repeat;
+}
+
+#fip-brown-inner {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#fip-brown-inner h1 {
+  font-family: NovesseMain;
+  font-size: 2em;
+  color: white;
+}
+
+/*****************************************************/
+/***************For MDPI laptops *********************/
+/*****************************************************/
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* CSS */
+}
+
+/**** MEDIA QUERY FOR FULL HD DISPLAYS *****/
+@media screen and (max-width: 1920px) {
+  #photos {
+    position: relative;
+    left: -100px;
+    display: flex;
+    flex-direction: row;
+    height: 1000px;
+    flex: 1;
+  }
+
+  .photo {
+    background-color: blueviolet;
+    height: 700px;
+    width: 450px;
+    margin: 12px;
+  }
+
+  #find-donor-button {
+    position: relative;
+    left: -10%;
+    margin-top: 48px;
+    font-family: OpenSans;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    background-color: black;
+    padding: 12px 24px;
+    border-radius: 10px;
+    width: min-content;
+    min-width: 220px;
+  }
+
+  #rect1-white-border {
+    z-index: 1;
+    position: relative;
+    top: -70px;
+    left: 100px;
+    border-radius: 30px;
+    border: 3px solid white;
+    padding: 16px;
+  }
 }
