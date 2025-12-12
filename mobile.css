@@ -1,0 +1,1235 @@
+/* IPHONE 12-16 SPECIFIC OVERHAUL 
+   Viewport Width: ~390px (Standard) to 430px (Max/Plus)
+   DPR: 3 
+*/
+
+@media only screen and (max-width: 430px) and (-webkit-min-device-pixel-ratio: 3) {
+  /* --- 1. GLOBAL RESETS & TYPOGRAPHY --- */
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+    font-size: 13px; /* Slightly smaller base font for narrow screens */
+  }
+
+  /* --- 2. HEADER & NAVIGATION --- */
+  header {
+    top: 0;
+    height: auto;
+    padding-bottom: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+  }
+
+  #container {
+    width: 100%;
+    flex-direction: column;
+    padding: 10px 0;
+    height: auto;
+  }
+
+  #nav-logo {
+    width: 120px;
+    height: 60px;
+    margin: 5px auto;
+  }
+
+  #nav-items ul {
+    flex-direction: column;
+    padding: 0;
+    width: 100%;
+    gap: 15px;
+  }
+
+  #nav-items ul li {
+    margin: 5px 0;
+    font-size: 1.3em;
+  }
+
+  #signin-button {
+    margin: 15px auto 5px;
+    width: 85%;
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  /* --- 3. HERO SECTIONS (Global Fixes) --- */
+  /* Targets Index, Who We Are, Donors, Intended Parents */
+  .hero-section {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 100px; /* Clear fixed header */
+  }
+
+  .hero-section_intro-text,
+  #donors_intro-text,
+  #wwa-hero-text,
+  #fip-hero-text {
+    width: 90% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    align-items: center !important;
+    height: auto !important;
+    min-width: 0 !important;
+    padding-bottom: 40px;
+  }
+
+  /* Adjust Hero Titles */
+  .hero-section_intro-text h1,
+  #donors_intro-text h1,
+  #wwa-hero-text h1,
+  #fip-hero-text h1 {
+    font-size: 2.8em !important;
+    line-height: 1.1;
+    margin-bottom: 15px;
+  }
+
+  /* Adjust Hero Subtitles */
+  .hero-section_intro-text p,
+  #donors_intro-text p,
+  #wwa-hero-text p,
+  #fip-hero-text p {
+    width: 100% !important;
+    font-size: 1.2em;
+    background: none !important; /* Remove background paths that don't fit mobile */
+    margin: 0;
+  }
+
+  /* 1. Target the Text Container */
+  #fip-hero-text {
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    margin-top: 15vh !important;
+  }
+
+  /* 2. Tighten the Title (H1) */
+  #fip-hero-text h1 {
+    margin-bottom: 15px !important;
+    line-height: 1.1 !important;
+    color: white !important;
+  }
+
+  /* 3. Style the Paragraph (p) */
+  #fip-hero-text p {
+    /* THE KEY FIXES */
+    height: auto !important; /* Overrides the desktop's 250px fixed height */
+    min-height: 0 !important; /* Removes any minimum height constraints */
+    font-weight: bold;
+    color: white !important;
+    margin-top: 0 !important;
+    font-size: 1.4em !important;
+    line-height: 1.3 !important;
+    background: none !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  #wwa-hero-text p {
+    font-size: 1.33em;
+  }
+
+  /* --- RESTORE PINK HERO UNDERBAR --- */
+  #index-bottom {
+    display: block !important; /* Un-hide it */
+
+    width: 50%; /* Adjust width (50-60% looks good) */
+    height: 12px; /* Slightly thinner than desktop */
+    background-color: deeppink;
+
+    /* Centering & Positioning */
+    margin: 0 auto; /* Center horizontally */
+    margin-top: -15px; /* Pull it UP to tuck under the text */
+
+    position: relative;
+    z-index: -1; /* Ensure it sits behind the text */
+    border-radius: 2px; /* Optional: softer corners */
+  }
+
+  /* Ensure the parent text container allows overlapping */
+  #index-text {
+    overflow: visible !important;
+  }
+
+  /* --- 4. SECTION LAYOUTS (Stacking) --- */
+  /* Force all main containers to be vertical */
+  #section3-container,
+  #section4-container,
+  #section5-container,
+  #section6-container,
+  #section7-container,
+  .content-stack {
+    flex-direction: column !important;
+    width: 92% !important;
+    height: auto !important;
+    margin: 20px auto;
+    padding: 0;
+  }
+
+  .novesseSection {
+    min-height: auto;
+    padding: 40px 0;
+  }
+
+  /* --- 5. INDEX PAGE SPECIFICS --- */
+
+  /* --- SECTION 2: FAMILY JOURNEY (FIXED) --- */
+
+  /* 1. Main Container: Stack everything vertically */
+
+  /* --- SECTION 2: FAMILY JOURNEY (STRICT WIDTH FIX) --- */
+
+  #section2 {
+    display: flex;
+    flex-direction: column !important;
+    padding: 20px 0 !important; /* Remove side padding from main container */
+    width: 100% !important;
+    overflow: hidden; /* Cut off any accidental spillover */
+    box-sizing: border-box;
+  }
+
+  #rect1-bg h1 {
+    font-size: 1.8em !important; /* Ensure text doesn't force width */
+    word-wrap: break-word; /* Break long words if necessary */
+  }
+
+  /* --- RECT1 SURGICAL FIX (Mobile) --- */
+
+  /* 1. Reset the wrapper container */
+  #rect1 {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    /* Disable any flex alignment that might push it right */
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* 2. Reset the White Border - The main culprit for the shift */
+  #rect1-white-border {
+    position: static !important; /* Stop it from floating/shifting */
+    left: 0 !important; /* FORCE reset of the desktop offset */
+    top: 0 !important;
+
+    width: 90% !important; /* Fit nicely on screen */
+    margin: 20px auto !important; /* Center it horizontally */
+    padding: 5px !important; /* Shrink border gap */
+  }
+
+  /* 3. Reset the Inner Content Background */
+  #rect1-bg {
+    width: 100% !important;
+    max-width: none !important; /* Allow it to fill the white border */
+
+    /* Remove the massive 140px padding from desktop */
+    padding: 30px 20px !important;
+
+    box-sizing: border-box !important;
+  }
+
+  /* --- PHOTOS FIX --- */
+  #photos-n-button {
+    width: 100% !important;
+    padding: 0 15px !important; /* Match gutter of text above */
+    box-sizing: border-box;
+    margin-top: 30px !important;
+  }
+
+  #photos {
+    position: static !important;
+    left: auto !important;
+    width: 100% !important;
+    flex-direction: column !important;
+    margin: 0 !important;
+    gap: 15px;
+  }
+
+  .photo {
+    width: 100% !important;
+    height: 250px !important;
+    margin: 0 !important;
+    background-size: cover !important;
+    border-radius: 10px;
+  }
+
+  #find-donor-button {
+    position: static !important;
+    left: auto !important;
+    width: 100% !important;
+    margin: 20px 0 0 0 !important;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  /* Section 3: Icons */
+  #section3-text {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  #section3-text h1 {
+    font-size: 2.5em;
+  }
+
+  #section3-text p {
+    font-size: 1.4em;
+  }
+
+  /* --- SECTION 3: 2x2 ICON GRID --- */
+
+  #section3-icons {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr; /* Create exactly 2 equal columns */
+    gap: 20px; /* Vertical & horizontal space between icons */
+
+    width: 90% !important; /* Width of the entire grid */
+    margin: 30px auto !important; /* Center the grid block */
+    padding: 0 !important;
+  }
+
+  /* Adjust the Circles */
+  .section3-icon {
+    width: 100% !important; /* Stretch to fill the grid cell */
+    max-width: 140px; /* Cap width so they don't get huge */
+    aspect-ratio: 1 / 1; /* Force them to stay perfectly square/circular */
+    height: auto !important; /* Allow height to adjust automatically */
+
+    margin: 0 auto !important; /* Center the circle inside its grid cell */
+    border-radius: 50% !important; /* Ensure it stays a circle */
+
+    /* Align content inside */
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Adjust Text Inside Icons */
+  .section3-icon h2 {
+    font-size: 1em !important; /* Keep text readable but small */
+    margin-top: 10px !important; /* Small gap between icon and text */
+    line-height: 1.1;
+  }
+
+  /* Ensure the icon images fit */
+  .section3-icon img {
+    width: 40% !important; /* Scale image relative to circle */
+    height: auto !important;
+  }
+
+  #section3-button {
+    width: 100%;
+  }
+
+  /* --- SECTION 4: TEXT SIZE & SPACING FIX --- */
+
+  /* 1. Make the Title Larger */
+  #section4-info h1 {
+    font-size: 3.5em !important; /* Significantly larger */
+    line-height: 1.1;
+    margin-bottom: 20px !important;
+  }
+
+  /* 2. Make the Paragraph Larger */
+  #section4-info p {
+    font-size: 1.5em !important; /* Readable body text size */
+    line-height: 1.4;
+    padding: 0 10px; /* Prevent text from hitting screen edges */
+  }
+
+  /* 3. Tighten the Tag Cloud */
+  #section4-items {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important; /* Use gap for modern spacing control */
+    margin-top: 30px !important;
+  }
+
+  #section4-items p {
+    /* Reduce spacing drastically */
+    margin: 0 !important; /* Remove old 12px margin, let 'gap' handle it */
+
+    padding: 8px 14px !important; /* Slightly more compact padding */
+    font-size: 1.1em !important; /* Ensure tag text is readable */
+    line-height: 1.2;
+  }
+
+  /* --- SECTION 5: FIX OVERFLOW & LAYOUT --- */
+
+  #section5 {
+    display: flex;
+    flex-direction: column !important;
+    padding: 20px 0 !important;
+    height: auto !important;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+
+  #section5-container {
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 15px !important; /* Gutter padding */
+    box-sizing: border-box;
+  }
+
+  /* 1. Adjust the Text Info Section */
+  #section5-info {
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  #section5-info h1 {
+    font-size: 2.2em !important;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  #section5-info p {
+    font-size: 1.2em !important;
+  }
+
+  #donor-onboard {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+
+    /* Change to Row so image sits next to text */
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 15px !important;
+    box-sizing: border-box;
+    margin: 20px 0;
+  }
+
+  /* 1. RESTORE CLIPBOARD IMAGE */
+  #donor-onboard img {
+    display: block !important; /* Unhide it */
+    height: 120px !important; /* Set a reasonable mobile height */
+    width: auto !important;
+    margin-right: 15px !important; /* Add space between image and text */
+    float: none !important; /* Disable desktop float behavior */
+  }
+
+  /* 2. Adjust Text Container */
+  #onboard-info {
+    width: auto !important;
+    padding: 0 12px !important;
+    align-items: flex-start !important; /* Align text to left */
+    text-align: left !important;
+    flex: 1; /* Allow it to take up remaining space */
+  }
+
+  #onboard-info h3 {
+    margin-top: 0;
+    font-size: 1.3em !important; /* Slightly smaller title to fit */
+    line-height: 1.1;
+    margin-bottom: 5px;
+  }
+
+  /* 3. RESTORE WATCH ICON & Duration Row */
+  #onboard-duration {
+    display: flex !important; /* Ensure flex is active */
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important; /* Align left */
+    margin: 5px 0 10px 0 !important;
+  }
+
+  /* Target the watch icon specifically using the generic img tag inside duration */
+  #onboard-duration img {
+    height: 20px !important; /* Small icon size */
+    width: auto !important;
+    margin-right: 5px !important;
+    display: block !important;
+  }
+
+  #onboard-duration p {
+    margin: 0 !important;
+    font-size: 1em !important;
+  }
+
+  /* Adjust Button inside card */
+  #onboard-button {
+    font-size: 0.9em !important;
+    padding: 8px 12px !important;
+    width: fit-content !important;
+  }
+
+  /* 4. Fix the Collage Image */
+  #section5-collage {
+    width: 100% !important;
+    height: 300px !important; /* Give it a fixed height */
+    flex: none !important; /* Don't shrink/grow */
+    background-size: contain !important; /* Ensure image fits visible area */
+    background-position: center top !important;
+    margin-top: 20px;
+  }
+
+  /* Section 6: Form */
+  /* 
+
+  #section6-form {
+    margin-top: 20px;
+    padding: 15px;
+  }
+
+  #section6-form-blocks {
+    flex-direction: column;
+  }
+
+  #section6-form textarea {
+    height: 120px;
+  } */
+
+  #section6-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #section6-inner h2 {
+    font-size: 1.6em !important; /* Larger subtitle */
+    text-align: center;
+    margin-top: 30px;
+    align-self: center;
+  }
+
+  #section6-inner h1 {
+    text-align: center;
+    align-self: center;
+  }
+
+  #section6-inner p {
+    font-size: 1.35em !important; /* Larger, readable body text */
+    line-height: 1.4;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  /* 3. Form Adjustments */
+  #section6-form {
+    width: 100% !important;
+    margin-top: 20px;
+    padding: 20px !important; /* internal padding */
+    box-sizing: border-box;
+  }
+
+  /************************/
+
+  /* 1. Make the parent wrapper the flex container */
+  #section6-form-blocks {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* 2. "Unwrap" the A and B containers 
+     This makes the inputs, button, and textarea direct children of the flex container above.
+     Note: Any padding on blockA/blockB will vanish, so we add spacing directly to items.
+  */
+  #section6-form-blockA,
+  #section6-form-blockB {
+    display: contents !important;
+  }
+
+  /* 3. Reorder the items specifically */
+
+  /* Inputs: Order 1 (Top) */
+  #section6-form-blockA input {
+    order: 1;
+    margin: 10px 0 !important; /* Ensure spacing remains */
+  }
+
+  /* Textarea: Order 2 (Middle) */
+  #section6-form-blockB textarea {
+    order: 2;
+    margin: 10px 0 20px 0 !important; /* Add bottom margin to push button down */
+  }
+
+  /* Submit Button: Order 3 (Bottom) */
+  #submit-button {
+    order: 3;
+    width: 100% !important;
+    margin-top: 10px !important;
+    align-self: center !important;
+  }
+
+  /************************/
+
+  /* Make input text readable on mobile (16px prevents zoom) */
+  #section6-form input,
+  #section6-form textarea {
+    font-size: 16px !important;
+    padding: 10px 5px !important;
+  }
+
+  #section6-form textarea {
+    height: 70px !important; /* Reduced height (approx 2 rows + padding) */
+    min-height: 70px !important; /* Prevent it from shrinking too much */
+    font-size: 16px !important;
+    padding: 10px 5px !important;
+  }
+
+  /* Section 7: Partners */
+  .marquee {
+    height: 120px;
+  }
+  .marquee .partner-logo {
+    height: 180px;
+    width: 180px;
+    margin: 20px 30px !important;
+  }
+
+  /* --- 6. INNER PAGES (Donors, WWA, Parents) --- */
+
+  /* Reset Stack Inners */
+  .content-stack-inner,
+  .wwa-stack-inner,
+  .general-stack-inner {
+    flex-direction: column;
+    width: 100%;
+    padding: 15px 0;
+  }
+
+  /* Make images appear first in their stacks */
+  #wwa-inner1,
+  #wwa-inner4,
+  #wwa-role-inner1,
+  #the-beginning-inner2,
+  #novesse-donor-inner2,
+  #fip-inner1,
+  #fip-journey-inner1 {
+    width: 100%;
+    height: 250px;
+    order: -1;
+    margin-bottom: 20px;
+    background-size: cover;
+  }
+
+  /* --- FIX LOGO IMAGE (Who We Are) --- */
+
+  #wwa-inner1 {
+    display: block !important;
+    width: 100% !important;
+
+    /* Give it enough height to show the logo clearly */
+    height: 300px !important;
+    min-height: 300px !important; /* Prevent collapsing */
+
+    flex: none !important; /* Stop flexbox from shrinking it */
+
+    /* 'contain' ensures the whole logo fits without being cut off */
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+
+    margin-bottom: 20px !important;
+  }
+
+  /* Donors Provided List */
+  #donors-provided-list {
+    flex-direction: column;
+  }
+  .provided-list-column {
+    width: 100%;
+    margin: 0;
+  }
+  .provided-item {
+    margin-bottom: 15px;
+  }
+
+  /* FAQ */
+  #faq-row {
+    flex-direction: column;
+  }
+  .faq {
+    margin: 10px 0;
+  }
+
+  /* Intended Parents Process Steps */
+  .fip-process-item {
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .fip-process-number {
+    margin-bottom: 15px;
+    height: 100px;
+    width: 100px;
+  }
+
+  /* Brown Section fix */
+  #fip-brown {
+    min-height: 250px;
+    padding: 40px 20px;
+    background-size: cover;
+  }
+
+  /* --- MOBILE FOOTER STYLES --- */
+
+  footer {
+    background-color: #f4e3d7 !important; /* The beige color from your image */
+    padding: 40px 20px !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    height: auto !important;
+    margin-top: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* 1. Logo Section */
+  .logo-column {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* Centers the Image */
+    text-align: center !important; /* Centers the Tagline Text */
+
+    width: 100% !important;
+    max-width: none !important; /* Remove desktop width limits */
+    margin-right: 0 !important; /* Remove desktop right margin */
+    margin-bottom: 30px !important;
+  }
+
+  .footer-logo {
+    width: 250px !important; /* Adjust size for mobile */
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .tagline {
+    font-family: "OpenSans";
+    color: #26a9e0; /* The Novesse Teal color */
+    font-size: 0.85em;
+    font-weight: bold;
+    max-width: 250px; /* Force wrap if too long */
+    line-height: 1.3;
+  }
+
+  /* 2. Links Columns */
+  .footer-links-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px; /* Space between "Who We Are", "Egg Donation", etc. */
+  }
+
+  .footer-column h3 {
+    font-family: "NovesseMain", serif; /* Use your custom header font */
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: black;
+    text-transform: capitalize; /* Ensures consistent casing */
+  }
+
+  .footer-column ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .footer-column ul li {
+    margin: 12px 0;
+  }
+
+  .footer-column ul li a {
+    text-decoration: none;
+    color: #333; /* Dark grey/black for links */
+    font-family: "OpenSans";
+    font-size: 1.1em;
+  }
+
+  /* 3. Social Icons List */
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .social-item {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the icon+text */
+    font-family: "OpenSans";
+    font-size: 1.1em;
+    color: #333;
+  }
+
+  /* 4. Bottom Section (Flags & Copyright) */
+  .footer-bottom {
+    margin-top: 40px;
+    padding-top: 30px;
+
+    /* The thick black line from your design */
+    border-top: 3px solid black;
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .language-flags {
+    display: flex;
+    gap: 20px;
+  }
+
+  .flag {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; /* Makes flags circular */
+    object-fit: cover;
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+  }
+
+  .copyright {
+    font-family: "OpenSans";
+    font-size: 0.9em;
+    color: black;
+  }
+
+  /* --- WHO WE ARE: FORCE CENTER ALIGNMENT (Mobile) --- */
+
+  /* 1. Main Wrapper & Stacks */
+  #wwa-content-wrapper,
+  #wwa-content-wrapper .content-stack,
+  #wwa-content-wrapper .fullwidth-stack {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* Centers flex items horizontally */
+    text-align: center !important; /* Centers text */
+  }
+
+  #wwa-content-wrapper {
+    flex-direction: column;
+    background: url(images/chocolate_waves.png) top / 300% 20% no-repeat;
+  }
+
+  /* 2. Target Specific Text Blocks */
+  #wwa-inner2,
+  #wwa-inner3,
+  #wwa-role-inner2,
+  #wwa-work-inner1,
+  #wwa-work-inner2,
+  #curated-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    padding: 20px !important; /* Ensure padding is uniform */
+    box-sizing: border-box;
+  }
+
+  #wwa-work-inner1 {
+    margin: 0 !important; /* Removes the desktop margin-right: 24px */
+    margin-bottom: 20px !important; /* Adds spacing below it */
+
+    text-align: center !important; /* Centers the text */
+    align-items: center !important; /* Centers items if flex is active */
+    justify-content: center !important;
+
+    width: 100% !important; /* Ensures it fills the container width */
+    padding: 30px 20px !important; /* Adjust padding for mobile */
+  }
+
+  /* --- FIX SQUASHED IMAGES (Who We Are) --- */
+
+  /* 1. "Qualities we've built..." Image (Hands & Heart) */
+  #wwa-inner4 {
+    display: block !important;
+    width: 100% !important;
+    height: 300px !important; /* Force explicit height */
+    min-height: 300px !important; /* Safety backup */
+    flex: none !important; /* Stop flexbox from squishing it */
+
+    background-size: cover !important;
+    background-position: center !important;
+    margin-bottom: 0 !important; /* Remove gaps if stacked */
+  }
+
+  /* 2. "The beginning they've been waiting for..." Image (Parents & Baby) */
+  #wwa-role-inner1 {
+    display: block !important;
+    width: 100% !important;
+    height: 300px !important; /* Force explicit height */
+    min-height: 300px !important; /* Safety backup */
+    flex: none !important; /* Stop flexbox from squishing it */
+
+    background-size: cover !important;
+    background-position: center !important;
+
+    /* Ensure it appears ABOVE the text on mobile */
+    order: -1 !important;
+  }
+
+  /* 3. Force Text Elements to Center */
+  #wwa-content-wrapper h1,
+  #wwa-content-wrapper h2,
+  #wwa-content-wrapper p {
+    text-align: center !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    font-size: 1.5em;
+    margin-right: auto !important;
+  }
+
+  #wwa-inner2 h2 {
+    font-size: 2.5em;
+  }
+
+  #wwa-inner3 h2 {
+    font-size: 2.5em;
+  }
+
+  #wwa-role-inner2 h1 {
+    font-size: 2.5em;
+  }
+
+  /* 4. Fix Buttons Alignment */
+  #wwa-content-wrapper .black-button {
+    margin: 20px auto !important; /* Auto margins center block elements */
+    width: fit-content !important;
+    justify-content: center !important;
+  }
+
+  /* --- FIX "CURATED WITH CARE" (Bottom Half Layout) --- */
+
+  /* 1. Parent Container: Needs fixed height to have a "top" and "bottom" */
+  #curated-stack {
+    height: 600px !important; /* Force a tall height so the image shows */
+    padding: 0 !important; /* Remove padding so child touches edges */
+
+    justify-content: flex-end !important; /* Push child content to the BOTTOM */
+    align-items: center !important;
+  }
+
+  /* 2. Text Container: Force it to take exactly the bottom 50% */
+  #curated-inner {
+    width: 90% !important; /* Full width */
+    height: auto !important; /* Take up exactly half the parent height */
+    max-width: none !important; /* Reset width limits */
+    margin: 0 !important; /* Remove all margins */
+    align-self: center;
+    background: rgba(
+      255,
+      255,
+      255,
+      0.85
+    ) !important; /* More opaque background */
+    border-radius: 0 !important; /* Square corners to look like a footer panel */
+
+    /* Center the text vertically inside this bottom box */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    padding: 10px !important;
+  }
+
+  /* 6. Form Section Alignment */
+  #wwa-form {
+    align-items: center !important;
+    justify-content: center;
+    padding: 20px !important;
+  }
+
+  #wwa-form h2 {
+    text-align: center !important; /* Centers the text */
+    background-position: center !important; /* Centers the scribble image */
+    background-size: contain !important; /* Ensures scribble fits */
+
+    width: 100% !important;
+    padding: 40px 10px !important; /* Adjust padding to prevent overflow */
+    box-sizing: border-box !important;
+
+    margin: 0 auto !important; /* Centers the block itself */
+  }
+
+  /* Keep inputs readable (Left aligned text inside inputs is usually better) */
+  #wwa-form input,
+  #wwa-form textarea {
+    text-align: left !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  /* --- WHO WE ARE HERO TEXT FIX --- */
+
+  #wwa-hero-text {
+    position: relative;
+    bottom: -100px;
+  }
+
+  #wwa-hero-text h1 {
+    margin: 0;
+  }
+
+  #wwa-hero-text p {
+    color: black !important; /* 1. Force text black */
+    background: none !important; /* 2. Remove the background image path */
+
+    position: relative; /* Needed to position the bar */
+    padding-bottom: 20px !important; /* Make room for the bar */
+
+    width: 100% !important;
+  }
+
+  /* 3. The Pink Underbar */
+  #wwa-hero-text p::after {
+    content: "";
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%); /* Perfect horizontal centering */
+
+    width: 200px; /* Length of the bar (adjust as needed) */
+    height: 14px; /* Thickness */
+    background-color: deeppink;
+    border-radius: 2px;
+  }
+
+  #fip-hero-text p::after {
+    content: "";
+    position: absolute;
+    bottom: 180px;
+    left: 50%;
+    transform: translateX(-50%); /* Perfect horizontal centering */
+
+    width: 200px; /* Length of the bar (adjust as needed) */
+    height: 14px; /* Thickness */
+    background-color: deeppink;
+    border-radius: 2px;
+  }
+
+  /* 1. Make the container narrower */
+
+  #fip-inner1 {
+    min-height: 300px;
+  }
+
+  #fip-inner2 {
+    width: 85% !important; /* Narrower than the screen width */
+    margin: 0 auto !important; /* Center the block horizontally */
+    padding: 20px 0 !important; /* Adjust padding if needed */
+  }
+
+  /* 2. Make the Title Smaller */
+  #fip-inner2 h2 {
+    font-size: 2em !important; /* Reduced from the default size */
+    line-height: 1.2 !important;
+    margin-bottom: 15px !important;
+  }
+
+  /* Optional: Adjust paragraph size if needed to match */
+  #fip-inner2 p {
+    font-size: 1.2em !important;
+  }
+
+  #fip-benefits h2 {
+    text-align: center !important;
+    width: 100% !important; /* Ensure it spans full width to allow centering */
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .provided-list-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+  }
+
+  .provided-item {
+    min-width: 100%;
+    align-self: center;
+  }
+
+  /* 1. Target the Main List Wrapper */
+  #fip-benefits #donors-provided-list {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Target the Column Wrapper */
+  #fip-benefits .provided-list-column {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    /* CRITICAL: 'stretch' forces children to touch both sides */
+    align-items: stretch !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 3. Target the UL (Remove default browser padding) */
+  /* This is usually the invisible blocker preventing full width */
+  #fip-benefits .provided-list-column ul {
+    width: 100% !important;
+    padding: 0 !important; /* Removes the default 40px left indent */
+    margin: 0 !important;
+    list-style: none !important;
+  }
+
+  /* 4. Target the Individual Items */
+  #fip-benefits .provided-item {
+    width: 100% !important; /* Force full width */
+    max-width: none !important;
+
+    display: flex !important;
+    flex-direction: row !important; /* Keep Icon + Text layout */
+    justify-content: flex-start !important;
+    align-items: center !important;
+
+    margin: 0 0 20px 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 5. Icon Spacing */
+  #fip-benefits .provided-icon {
+    margin-right: 15px !important;
+    flex-shrink: 0 !important; /* Don't squash icon */
+  }
+
+  /* 6. Text Spacing */
+  #fip-benefits .provided-item li {
+    width: auto !important;
+    flex: 1 !important; /* Text takes up all remaining space */
+    padding-right: 10px !important; /* Safety padding on the right edge */
+  }
+
+  .fip-process-itemA,
+  .fip-process-itemB {
+    align-self: center;
+  }
+
+  #fip-benefits::after {
+    content: "";
+    width: 40%;
+    height: 6px;
+    margin-top: 36px;
+    background-color: #b7c4c8ff;
+  }
+  #fip-benefits::before {
+    content: "";
+    width: 40%;
+    height: 6px;
+    margin-bottom: 36px;
+    background-color: #b7c4c8ff;
+  }
+
+  #fip-process {
+    padding: 24px;
+    margin-top: 0 !important; /* Removes outer top gap */
+    margin-bottom: 0 !important;
+  }
+
+  /* 1. Target the Text Container */
+  #fip-exclusive-inner {
+    /* STRETCH: Make it fill most of the screen */
+    width: 100% !important;
+    max-width: none !important; /* Remove desktop width limits */
+
+    /* POSITION: Center the box itself */
+    margin: 20px auto !important;
+    align-self: center !important; /* Stop it from sticking to the left */
+
+    /* CONTENT: Center text and button inside */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+
+    /* Optional: Add background style if needed for readability */
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(5px) !important;
+    border-radius: 10px !important;
+  }
+
+  /* 2. Adjust Title Size */
+  #fip-exclusive-inner h2 {
+    font-size: 2.4em !important;
+    line-height: 1.2;
+    margin-bottom: 15px !important;
+  }
+
+  #fip-exclusive-inner p {
+    font-size: 1.33em !important;
+    line-height: 1.2;
+    margin-bottom: 15px !important;
+  }
+
+  #fip-journey-inner1 {
+    /* 1. Increase height significantly */
+    height: 300px !important; /* Increased from default 250px */
+    min-height: 300px !important;
+
+    /* 2. Ensure image covers the area without distortion */
+    background-size: 100% contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+
+    /* 3. prevent flexbox from shrinking it */
+    flex: none !important;
+    width: 100% !important;
+    margin-bottom: 20px !important;
+  }
+
+  #fip-science-inner2 p {
+    font-size: 1.7em;
+  }
+
+  #fip-brown-inner {
+    width: 100% !important;
+
+    /* Flexbox centering */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* Horizontal center */
+    justify-content: center !important; /* Vertical center */
+
+    text-align: center !important; /* Text center */
+    padding: 20px !important;
+  }
+
+  /* Ensure the title is centered */
+  #fip-brown-inner h1 {
+    text-align: center !important;
+    margin-bottom: 20px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Ensure the button is centered */
+  #fip-brown-inner .black-button {
+    margin: 0 auto !important;
+  }
+}

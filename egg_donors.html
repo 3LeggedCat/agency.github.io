@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Novesse Fertility</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="mobile.css" />
+    <link rel="stylesheet" href="mobile-navbar.css" />
+    <link rel="stylesheet" href="mobile_egg_donors.css" />
 
     <link
       rel="apple-touch-icon"
@@ -41,14 +45,14 @@
             <li><a>Blog</a></li>
           </ul>
         </div>
-        <div id="signin-button">Sign In</div>
+        <a href="login.html"><div id="signin-button">Sign In</div></a>
       </div>
     </header>
 
     <div id="content">
-      <div id="donors_section1" class="novesseSection">
+      <!-- <div id="donors_section1" class="novesseSection">
         <div id="donors_intro-text">
-          <h1>Become an<br />Egg Donor</h1>
+          <h1>Become an Egg Donor</h1>
           <p>
             You are the difference that can give them a chance;<br />
             The dream for a loving couple to build their family.
@@ -59,21 +63,23 @@
             </video>
           </div>
         </div>
-      </div>
-      <!-- <div class="hero-section">
-        <div class="hero-section_intro-text">
-          <h1>Become an<br />Egg Donor</h1>
+      </div> -->
+
+      <div class="hero-section">
+        <div class="hero-section_player-wrapper">
+          <video autoplay muted loop class="hero_video-player index-player">
+            <source src="videos/4women.webm" type="video/mp4" />
+          </video>
+        </div>
+        <div class="hero-section_intro-text" id="donor-text">
+          <h1>Become an Egg Donor</h1>
           <p>
             You are the difference that can give them a chance;<br />
             The dream for a loving couple to build their family.
           </p>
         </div>
-        <div class="hero-section_player-wrapper">
-          <video autoplay muted loop class="hero_video-player">
-            <source src="videos/mother_n_baby.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </div> -->
+      </div>
+
       <div id="donors_section2" class="novesseSection" style="z-index: 2">
         <div id="donors_the-beginning" class="content-stack">
           <div class="content-stack-inner" id="the-beginning-inner1">
@@ -261,29 +267,69 @@
         </div>
       </div>
     </div>
-    <footer><div id="footer-container"></div></footer>
-    <script>
-      // Get the navbar element
-      const navbar = document.getElementById("nav-items");
-      const container = document.getElementById("container");
+    <footer>
+      <div class="footer-wrapper">
+        <div class="footer-column logo-column">
+          <img src="images/logo_footer.png" alt="Novesse" class="footer-logo" />
+        </div>
 
-      // Function to handle scroll
-      function handleScroll() {
-        // Check if page is scrolled more than 50 pixels
-        if (window.scrollY > 100) {
-          navbar.classList.add("scrolled");
-          container.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-          container.classList.remove("scrolled");
-        }
-      }
+        <div class="footer-links-group">
+          <div class="footer-column">
+            <h3>Who We Are</h3>
+            <ul>
+              <li><a href="who_we_are.html">Our Story</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Testimonials</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
 
-      // Listen for scroll events
-      window.addEventListener("scroll", handleScroll);
+          <div class="footer-column">
+            <h3>Egg Donation</h3>
+            <ul>
+              <li><a href="egg_donors.html">Requirements</a></li>
+              <li><a href="#">The Process</a></li>
+              <li><a href="#">Application for Egg Donors</a></li>
+              <li><a href="#">Sperm Donors</a></li>
+            </ul>
+          </div>
 
-      // Check initial scroll position on page load
-      handleScroll();
-    </script>
+          <div class="footer-column">
+            <h3>Follow Us</h3>
+            <ul class="social-links">
+              <li class="social-item">
+                <span class="icon insta"></span>Instagram
+              </li>
+              <li class="social-item"><span class="icon fb"></span>Facebook</li>
+              <li class="social-item"><span class="icon yt"></span>Youtube</li>
+              <li class="social-item">
+                <span class="icon blue"></span>Bluesky
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Customer Support</h3>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Chat with Us</a></li>
+              <li><a href="#">Get in Touch</a></li>
+              <li><a href="#">Terms & Conditions</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="language-flags">
+            <img src="images/us_flag.png" alt="English" class="flag" />
+            <img src="images/spanish_flag.png" alt="Spanish" class="flag" />
+          </div>
+          <p class="copyright">Copyright 2025 © Novesse Fertility</p>
+        </div>
+      </div>
+    </footer>
+    <script src="navbar.js"></script>
+    <script src="mobile-navbar.js"></script>
   </body>
 </html>

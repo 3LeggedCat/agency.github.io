@@ -1,0 +1,197 @@
+/* MOBILE NAVBAR WITH HAMBURGER 
+   Targeting iPhone 12-16 (Approx 390px - 430px width, DPR 3)
+*/
+
+@media only screen and (max-width: 430px) and (-webkit-min-device-pixel-ratio: 3) {
+  /* --- HEADER --- */
+  header {
+    height: auto !important;
+    top: 0 !important;
+    padding: 0;
+    /* We keep the header background transparent or semi-transparent 
+       so the menu container can handle the white background */
+    background: transparent !important;
+    pointer-events: none; /* Let clicks pass through if closed */
+  }
+
+  /* --- CONTAINER (The Main Wrapper) --- */
+  #container {
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 10px 0;
+    position: relative;
+    pointer-events: auto; /* Re-enable clicks */
+
+    /* Default Background (Glassy/White) */
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    align-items: center;
+    border-radius: 0px;
+  }
+
+  /* WHEN MENU IS OPEN: Ensure solid white background for the whole group */
+  #container.active {
+    background-color: white !important;
+    padding-bottom: 30px; /* Add space at the bottom */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  /* --- LOGO --- */
+  #nav-logo {
+    width: 120px;
+    height: 60px;
+    margin: 5px auto;
+    background-size: contain;
+    z-index: 1002;
+  }
+
+  /* --- HAMBURGER BUTTON --- */
+  #mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 30px;
+    height: 21px;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1003;
+  }
+
+  #mobile-menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+
+  /* Animation: Turn into an X */
+  #mobile-menu-toggle.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  #mobile-menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  #mobile-menu-toggle.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  /* --- MENU ITEMS --- */
+  #nav-items {
+    display: none; /* HIDDEN DEFAULT */
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  /* VISIBLE WHEN CONTAINER IS ACTIVE */
+  #container.active #nav-items {
+    display: flex;
+  }
+
+  #nav-items ul {
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  #nav-items ul li {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #f9f9f9;
+  }
+
+  /* 1. Update Links to be Inline-Block 
+     This makes the link wrap tightly around the text so the underline is the correct width.
+  */
+  #nav-items ul li a {
+    display: inline-block !important; /* Wraps text width */
+    position: relative; /* Needed for positioning the bar */
+    padding: 10px 10px; /* Adds tap area around text */
+    color: black !important;
+    font-size: 1.2em;
+    text-decoration: none;
+  }
+
+  /* 2. Create the Pink Underbar (Hidden/Scaled to 0 by default) */
+  #nav-items ul li a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    bottom: 5px; /* Positions it near the bottom of the text */
+    left: 0;
+    background-color: deeppink;
+
+    /* Animation Setup */
+    transform: scaleX(0); /* Start invisible */
+    transform-origin: bottom right; /* Start animation from right */
+    transition: transform 0.3s ease-out;
+    display: block !important; /* Force it to show */
+  }
+
+  /* 3. Animate on Click (:active) 
+     :active triggers the moment you tap/hold the link
+  */
+  #nav-items ul li a:active::after {
+    transform: scaleX(1); /* Scale to full width */
+    transform-origin: bottom left; /* Swipe effect direction */
+  }
+
+  /* --- SIGN IN BUTTON --- */
+  #signin-button {
+    display: none; /* Hidden by default */
+
+    /* FIX: Use 'vw' (viewport width) to bypass the parent link's shrinking */
+    width: 85vw;
+    min-width: 300px; /* Ensure it never gets too small */
+
+    margin: 20px auto 0 auto; /* Center horizontally */
+    text-align: center;
+    white-space: nowrap; /* Force text to stay on one line */
+
+    animation: slideDown 0.4s ease forwards;
+  }
+
+  /* TURN PINK ON CLICK / TAP */
+  #signin-button:active {
+    background-color: deeppink !important;
+    color: white !important;
+    /* Removes the default grey tap highlight on mobile */
+    -webkit-tap-highlight-color: transparent;
+
+    /* Make the change instant so it feels responsive */
+    transition: background-color 0s;
+  }
+
+  /* VISIBLE WHEN CONTAINER IS ACTIVE */
+  #container.active #signin-button {
+    display: block;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

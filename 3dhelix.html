@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D DNA Double Helix</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      overflow: hidden;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    .glow {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 600px;
+      background: radial-gradient(ellipse at center, rgba(0, 212, 170, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <canvas id="dna"></canvas>
+
+  <script>
+    const canvas = document.getElementById('dna');
+    const ctx = canvas.getContext('2d');
+
+    // Configuration
+    const config = {
+      helixRadius: 80,        // Radius of the helix
+      verticalSpacing: 28,    // Vertical distance between base pairs
+      basePairs: 20,          // Number of base pairs
+      rotationSpeed: 0.02,    // Speed of rotation
+      dotRadius: 6,           // Base radius of dots
+      lineWidth: 2,           // Width of connecting lines
+      colors: {
+        strand1: '#00d4aa',   // Teal/cyan
+        strand2: '#ff6b6b',   // Coral/red
+        connector: '#4a5568', // Gray for base pair connectors
+        glow: 'rgba(0, 212, 170, 0.3)'
+      }
+    };
+
+    let rotation = 0;
+    let animationId;
+
+    // Set canvas size
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    // Calculate 3D position projected to 2D
+    function getHelixPoint(index, offset, time) {
+      const angle = (index * 0.6) + time + offset;
+      const x = Math.cos(angle) * config.helixRadius;
+      const z = Math.sin(angle) * config.helixRadius;
+      const y = (index - config.basePairs / 2) * config.verticalSpacing;
+      
+      // Simple perspective projection
+      const perspective = 400;
+      const scale = perspective / (perspective + z);
+      
+      return {
+        x: x * scale,
+        y: y * scale,
+        z: z,
+        scale: scale
+      };
+    }
+
+    // Draw a glowing dot
+    function drawDot(x, y, radius, color, alpha) {
+      // Outer glow
+      const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius * 3);
+      gradient.addColorStop(0, color);
+      gradient.addColorStop(0.3, color);
+      gradient.addColorStop(1, 'transparent');
+      
+      ctx.beginPath();
+      ctx.arc(x, y, radius * 3, 0, Math.PI * 2);
+      ctx.fillStyle = gradient;
+      ctx.globalAlpha = alpha * 0.3;
+      ctx.fill();
+      
+      // Main dot
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.globalAlpha = alpha;
+      ctx.fill();
+      
+      // Highlight
+      ctx.beginPath();
+      ctx.arc(x - radius * 0.3, y - radius * 0.3, radius * 0.4, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+      ctx.globalAlpha = alpha;
+      ctx.fill();
+      
+      ctx.globalAlpha = 1;
+    }
+
+    // Draw connecting line between two points
+    function drawLine(x1, y1, x2, y2, color, alpha, width) {
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+      ctx.globalAlpha = alpha;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+    }
+
+    // Main render function
+    function render() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      
+      // Store all elements with their z-index for depth sorting
+      const elements = [];
+      
+      // Calculate all points
+      for (let i = 0; i < config.basePairs; i++) {
+        const point1 = getHelixPoint(i, 0, rotation);
+        const point2 = getHelixPoint(i, Math.PI, rotation);
+        
+        // Add connector (base pair)
+        elements.push({
+          type: 'connector',
+          z: (point1.z + point2.z) / 2,
+          data: { point1, point2, index: i }
+        });
+        
+        // Add strand 1 dot
+        elements.push({
+          type: 'dot1',
+          z: point1.z,
+          data: { point: point1, index: i }
+        });
+        
+        // Add strand 2 dot
+        elements.push({
+          type: 'dot2',
+          z: point2.z,
+          data: { point: point2, index: i }
+        });
+        
+        // Add backbone lines
+        if (i < config.basePairs - 1) {
+          const nextPoint1 = getHelixPoint(i + 1, 0, rotation);
+          const nextPoint2 = getHelixPoint(i + 1, Math.PI, rotation);
+          
+          elements.push({
+            type: 'backbone1',
+            z: (point1.z + nextPoint1.z) / 2,
+            data: { from: point1, to: nextPoint1 }
+          });
+          
+          elements.push({
+            type: 'backbone2',
+            z: (point2.z + nextPoint2.z) / 2,
+            data: { from: point2, to: nextPoint2 }
+          });
+        }
+      }
+      
+      // Sort by z-index (draw back to front)
+      elements.sort((a, b) => a.z - b.z);
+      
+      // Draw all elements
+      elements.forEach(element => {
+        const alpha = 0.4 + (element.z + config.helixRadius) / (config.helixRadius * 2) * 0.6;
+        
+        switch (element.type) {
+          case 'connector':
+            const { point1, point2 } = element.data;
+            drawLine(
+              centerX + point1.x,
+              centerY + point1.y,
+              centerX + point2.x,
+              centerY + point2.y,
+              config.colors.connector,
+              alpha * 0.7,
+              config.lineWidth * ((point1.scale + point2.scale) / 2)
+            );
+            break;
+            
+          case 'backbone1':
+            drawLine(
+              centerX + element.data.from.x,
+              centerY + element.data.from.y,
+              centerX + element.data.to.x,
+              centerY + element.data.to.y,
+              config.colors.strand1,
+              alpha,
+              config.lineWidth * element.data.from.scale * 1.5
+            );
+            break;
+            
+          case 'backbone2':
+            drawLine(
+              centerX + element.data.from.x,
+              centerY + element.data.from.y,
+              centerX + element.data.to.x,
+              centerY + element.data.to.y,
+              config.colors.strand2,
+              alpha,
+              config.lineWidth * element.data.from.scale * 1.5
+            );
+            break;
+            
+          case 'dot1':
+            drawDot(
+              centerX + element.data.point.x,
+              centerY + element.data.point.y,
+              config.dotRadius * element.data.point.scale,
+              config.colors.strand1,
+              alpha
+            );
+            break;
+            
+          case 'dot2':
+            drawDot(
+              centerX + element.data.point.x,
+              centerY + element.data.point.y,
+              config.dotRadius * element.data.point.scale,
+              config.colors.strand2,
+              alpha
+            );
+            break;
+        }
+      });
+      
+      // Update rotation
+      rotation += config.rotationSpeed;
+      
+      // Continue animation loop
+      animationId = requestAnimationFrame(render);
+    }
+
+    // Initialize
+    function init() {
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+      render();
+    }
+
+    // Start the animation
+    init();
+  </script>
+</body>
+</html>

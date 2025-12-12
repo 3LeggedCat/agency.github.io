@@ -1,3 +1,7 @@
+/***************************************************/
+/************** GENERAL CSS RULES  *****************/
+/***************************************************/
+
 /* *,
 *::before,
 *::after {
@@ -11,8 +15,14 @@
 html,
 body {
   margin: 0;
-  height: 100%;
+  padding: 0;
+  overflow-x: hidden; /*Prevents accidental horizontal scroll */
   background-color: #dde3e8ff;
+}
+
+a:visited {
+  text-decoration: none;
+  decoration: none;
 }
 
 img {
@@ -71,14 +81,12 @@ ul:not(article ul) {
   /* border: 8px dashed purple; */
 }
 
-/**************************************/
-
 .hero-section {
-  box-sizing: border-box;  
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
   height: 100vh;
   width: 100%;
   /* border: 8px dashed blue; */
@@ -91,33 +99,39 @@ ul:not(article ul) {
   left: 0;
   z-index: 1;
   height: 100vh;
-  width: 100vw;  
+  width: 100vw;
 }
 
 .hero_video-player {
   top: 0;
   left: 0;
-  width: 100%;  
+  width: 100%;
+  height: 100%; /* Forces the video to be as tall as the screen */
+  object-fit: cover; /* Ensures the video zooms to fill the area without stretching */
 }
 
 .index-player {
-  margin-top: -7.7%;
-  width: 105vw;
+  /* margin-top: -7.7%;
+  width: 105vw; */
 }
 
 .hero-section_intro-text {
   width: 60%;
-  margin-top: 200px;
-  margin-left: -500px;
+  margin-top: 40vh;
+  margin-left: -20vw;
   height: 150px;
   z-index: 2;
-  color: white;  
+  color: white;
 }
 
 .hero-section_intro-text h1 {
+  display: inline-block;
   font-family: NovesseMain;
-  font-size: 4em;
+  font-size: clamp(2em, 5vw, 4em);
   color: white;
+
+  position: relative;
+  z-index: 10; /* Ensures text sits on top of the bar */
 }
 
 .hero-section_intro-text p {
@@ -142,7 +156,7 @@ ul:not(article ul) {
 }
 
 #index-bottom {
-  margin-top: -50px;
+  margin-top: -0.6em;
   width: 50%;
   min-height: 20px;
   background-color: deeppink;
@@ -870,7 +884,7 @@ textarea {
 /********************* FOOTER  *********************/
 /***************************************************/
 
-footer {
+/* footer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -884,143 +898,157 @@ footer {
   width: 1400px;
   height: 700px;
   background: url(images/footer.png) center / contain no-repeat;
-}
+} */
 
-/***************************************************/
-/************** GENERAL CSS RULES  *****************/
-/***************************************************/
+/* --- DESKTOP FOOTER STYLES --- */
 
-header {
-  z-index: 99999;
-  transition: all 0.3s ease 0s;
-  position: fixed;
+footer {
+  background-color: #f4e3d7; /* Beige background */
+  padding: 60px 0;
   width: 100%;
-  margin: 0 auto;
-  top: 24px;
-  height: 100px;
-  width: 100%;
-}
-
-#container {
-  width: 1400px;
-  height: 100%;
-  margin: 0 auto; /* centers the inner content */
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around; /* center links inside container */
-  align-items: center;
-  border-radius: 10px;
-
-  /*  
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-
-  /* Initial transparent state */
-  background-color: transparent;
-
-  /* Smooth transition for background changes */
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-/* Class added when scrolled */
-#container.scrolled {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.5
-  ); /* White with slight transparency */
-  backdrop-filter: blur(10px); /* Optional: adds a nice blur effect */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Optional: adds subtle shadow */
-}
-
-/* Optional: Different text colors for each state */
-#nav-items ul li a {
-  color: #fff; /* White text on transparent background */
-  position: relative;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-#nav-items.scrolled ul li a {
-  position: relative;
-  text-decoration: none;
-  color: black; /* Dark text on white background */
-}
-
-#nav-logo {
-  width: 200px;
-  height: 100px;
-  background: url(images/logo_800px.png) center / contain no-repeat;
-}
-
-#nav-logo:hover {
-  cursor: pointer;
-}
-
-#nav-items {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-#nav-items ul {
-  display: flex;
-  flex-direction: row;
-}
-
-#nav-items ul li {
   font-family: "OpenSans";
+}
+
+.footer-wrapper {
+  max-width: min(1280px, 80%);
+  margin: 0 auto;
+
+  /* THIS CREATES THE ROW LAYOUT */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Pushes Logo to left, Links to right */
+  align-items: flex-start; /* Aligns them to the top */
+
+  padding: 0 40px;
+  flex-wrap: wrap; /* Allows wrapping on smaller desktop screens */
+}
+
+/* 1. Logo Section (Left Side) */
+.logo-column {
+  flex: 1; /* Takes up available space on the left */
+  max-width: 300px; /* Prevents it from getting too wide */
+  margin-right: 60px; /* Space between logo and links */
+  text-align: left;
+}
+
+.footer-logo {
+  width: 300px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.tagline {
+  font-family: "OpenSans";
+  color: #00a4b4; /* Novesse Teal */
   font-weight: bold;
   font-size: 1em;
-  margin: 2em;
-  cursor: pointer;
+  line-height: 1.4;
+}
+
+/* 2. Link Columns Container (Right Side) */
+.footer-links-group {
+  flex: 3; /* Takes up more space than the logo */
+  display: flex;
+  justify-content: space-between; /* Spreads the 4 columns evenly */
+  gap: 30px;
+}
+
+/* Individual Columns */
+.footer-column h3 {
+  font-family: "NovesseMain", serif;
+  font-size: 1.4em;
+  margin-bottom: 20px;
+  color: black;
+  white-space: nowrap; /* Prevents headers from breaking awkwardly */
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 12px;
+}
+
+/* --- FOOTER LINK HOVER ANIMATION --- */
+
+/* 1. Set up the parent link */
+.footer-column ul li a {
+  position: relative; /* Required anchor for the underbar */
+  display: inline-block; /* Ensures the bar matches the text width exactly */
+  padding-bottom: 2px; /* Adds a tiny bit of space above the bar */
+  text-decoration: none;
   color: black;
 }
 
-#nav-items ul li a:hover {
-  color: deeppink;
+.footer-column ul li a:visited {
+  text-decoration: none;
+  decoration: none;
 }
 
-/* The pseudo-element that will become the underbar */
-#nav-items ul li a::after {
-  content: ""; /* Required for a pseudo-element to be generated */
+/* 2. Create the hidden underbar */
+.footer-column ul li a::after {
+  content: "";
   position: absolute;
   width: 100%;
-  height: 4px; /* Thickness of the underbar */
-  bottom: -5px;
+  height: 2px; /* Slightly thinner than navbar (2px looks cleaner for lists) */
+  bottom: 0;
   left: 0;
-  background-color: deeppink; /* Color of the underbar */
+  background-color: deeppink; /* Matches your brand hover color */
 
-  /* --- The Magic --- */
-  transform: scaleX(0); /* Initially, the underbar is scaled to 0 width */
-  transform-origin: bottom right; /* Set the origin for the transform */
-  transition: transform 0.25s ease-out; /* Animate the transform property */
+  /* Animation Setup */
+  transform: scaleX(0); /* Start invisible (width 0) */
+  transform-origin: bottom right; /* Slide out to the right */
+  transition: transform 0.3s ease-out;
 }
 
-/* On hover, scale the underbar back to 100% width */
-#nav-items ul li a:hover::after {
+/* 3. Trigger animation on hover */
+.footer-column ul li a:hover::after {
+  transform: scaleX(1); /* Scale to full width */
+  transform-origin: bottom left; /* Slide in from the left */
+}
+
+.footer-column ul li a:hover {
   color: deeppink;
-  transform: scaleX(1); /* Scale to full width on hover */
-  transform-origin: bottom left; /* Change origin to create a "wipe" effect */
 }
 
-#signin-button {
-  color: white;
-  font-family: OpenSans;
-  font-weight: bold;
-  padding: 12px 24px;
-  background-color: black;
-  margin-left: 24px;
-  border-radius: 8px;
-}
-
-#signin-button:hover {
-  background-color: deeppink;
-  color: white;
+/* Social Icons (Desktop) */
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   cursor: pointer;
+}
+
+/* 3. Bottom Bar (Full Width) */
+.footer-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Flags Left, Copyright Right */
+  align-items: center;
+  margin-top: 60px;
+  padding-top: 25px;
+  border-top: 4px solid black; /* Thick black line */
+}
+
+.language-flags {
+  display: flex;
+  gap: 15px;
+}
+
+.flag {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.copyright {
+  font-family: "OpenSans";
+  font-size: 0.9em;
+  color: black;
 }
 
 /****************************************************/
@@ -1038,10 +1066,9 @@ header {
 
 #donors_intro-text {
   width: 60%;
-  margin-top: 200px;
+  margin-top: 350px;
   margin-left: -500px;
   height: 150px;
-  /* border: 2px dashed yellow; */
   z-index: 2;
   color: white;
 }
@@ -1059,10 +1086,9 @@ header {
   font-style: italic;
   font-weight: bold;
   font-size: 1.3em;
-  background: url(images/path_hero_donors.png) center / contain no-repeat;
-  width: 35%;
-  height: 200px;
-  /* border: 2px dashed yellow; */
+  background: url(images/path_hero_donors.png) center / 100% 100% no-repeat;
+  width: 50%;
+  height: 150px;
 }
 
 #donors_section2 {
@@ -1141,6 +1167,7 @@ header {
 }
 
 .black-button {
+  font-family: OpenSans;
   display: flex;
   flex: 1;
   height: 100%;
@@ -1401,8 +1428,20 @@ header {
   background: url(images/hero-who_we_are.jpg) center / cover no-repeat;
 }
 
+/* Specific override for the 'Who We Are' page hero text */
+#wwa-hero-text {
+  /* This overrides the default 40vh margin-top */
+  margin-top: 20vh; /* Adjust this number to move it higher or lower */
+
+  /* Optional: If you want it centered or positioned differently than the index */
+  /* margin-left: 0; */
+}
+
 #wwa-hero-text p {
   background: url(images/path_hero_wwa.png) center / contain no-repeat;
+  width: 60%;
+  /* Optional: Ensure the background image scales correctly with the new width */
+  background-size: 100% 100%; /* Or 'contain' depending on your image preference */
 }
 
 #wwa-hero-text h1 {
@@ -1428,6 +1467,13 @@ header {
 #wwa-form {
   box-sizing: border-box;
   padding: 36px;
+  font-family: OpenSans;
+}
+
+/* Force OpenSans on the black button when it's inside the wwa-form */
+#wwa-form .black-button p {
+  font-family: OpenSans;
+  font-size: 1em; /* Reset size if you don't want the huge 1.5em form text size */
 }
 
 #wwa-form input[type="text"],
@@ -1530,6 +1576,7 @@ input[type="tel"] {
   margin-top: 100px;
   background: url(images/waves_background_2.png) center / cover no-repeat;
   background-color: #dbdbe3ff;
+  overflow: hidden;
 }
 
 #wwa-role-inner2 {
@@ -1901,6 +1948,7 @@ input[type="tel"] {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   padding: 0;
   margin-top: 100px;
   background: url(images/waves_background_3.png) center / cover no-repeat;
@@ -1930,6 +1978,7 @@ input[type="tel"] {
 
 #fip-journey-inner1 {
   flex: 1;
+
   height: 550px;
   background: url(images/fip_bw_baby.png) center / cover no-repeat;
 }
@@ -1994,6 +2043,14 @@ input[type="tel"] {
   color: white;
 }
 
+#section3-container,
+#section4-container,
+#section5-container,
+#section6-container,
+#section7-container {
+  width: min(1800px, 90%);
+}
+
 /*****************************************************/
 /***************For MDPI laptops *********************/
 /*****************************************************/
@@ -2043,5 +2100,433 @@ input[type="tel"] {
     border-radius: 30px;
     border: 3px solid white;
     padding: 16px;
+  }
+}
+
+@media screen and (max-width: 1921px) {
+  #donors_intro-text p {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 1441px) {
+  html {
+    /* The default browser size is usually 16px.
+       Reducing this to ~13px or 14px will instantly shrink 
+       ALL text defined with 'em' or 'rem' by about 15-20%.
+    */
+    font-size: 13px;
+  }
+
+  /* Target all your section H1s dynamically */
+  #section3-text h1,
+  #section4-info h1,
+  #section5-info h1,
+  #section6-inner h1,
+  #section7-container h1 {
+    /* Minimum 2em, Preferred 4vw, Maximum 4em */
+    font-size: clamp(2em, 4vw, 4em);
+  }
+
+  /* Target all your section Paragraphs */
+  #section3-text p,
+  #section4-info p,
+  #section5-info p,
+  #section6-inner p {
+    font-size: clamp(1rem, 1.5vw, 1.4em);
+  }
+
+  .hero-section_intro-text {
+    margin-top: 40vh;
+  }
+
+  .hero-section_intro-text h1 {
+    font-size: 3em; /* Reduced from 4em */
+  }
+
+  #rect1-bg {
+    /* Reduce the huge right padding to give text more room */
+    padding-right: 40px; /* Reduced from 140px */
+
+    /* Optional: Ensure the box doesn't get too narrow */
+    min-width: 400px;
+  }
+
+  /* Optional: Adjust the parent flex container to prioritize text width */
+  #rect1 {
+    flex: 1.2; /* grow slightly larger than the photos side */
+  }
+
+  /* 1. Set the main container to a vertical column */
+  #section3-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: min(1800px, 95%);
+    padding: 24px 0;
+  }
+
+  /* 2. THE MAGIC TRICK: "Unwrap" the text container */
+  /* This makes the H1, P, and Icons act like direct children of the container above */
+  #section3-text {
+    display: contents;
+  }
+
+  /* 3. Reorder the items specifically */
+
+  /* Text stays at Order 0 (Default) so it appears first */
+
+  /* Force the Button to appear AFTER the text but BEFORE the icons */
+  #section3-button {
+    order: 5; /* Higher than text (0), lower than icons (10) */
+    width: 100%;
+    margin: 32px 0; /* Add space above and below the button */
+    padding: 0;
+  }
+
+  /* Force Icons to appear LAST */
+  #section3-icons {
+    order: 10; /* Highest number goes to the bottom */
+    margin: 0;
+    justify-content: space-evenly; /* Spread them out nicely */
+    margin: 20px 0; /* Reduce outer margin */
+    gap: 10px; /* Ensure they don't touch */
+  }
+
+  .section3-icon {
+    width: 100px; /* Reduced from 160px */
+    height: 100px; /* Reduced from 160px */
+    padding: 10px; /* Reduce padding slightly */
+  }
+
+  .section3-icon h2 {
+    font-size: 0.9em; /* Make text smaller */
+    margin-top: 15px; /* Pull text up (reduced from 40px) so it stays inside */
+    line-height: 1.1; /* Tighter line spacing for multi-line labels */
+  }
+
+  /* Optional: Fix button text wrapping */
+  #section3-button p {
+    white-space: nowrap;
+    text-align: center;
+    width: auto;
+    display: inline-block;
+  }
+
+  #donor-onboard {
+    border-radius: 10px;
+    background-color: #d6c8bfff;
+    height: 220px;
+    width: 500px;
+    font-family: OpenSans;
+    padding-bottom: 24px;
+  }
+
+  #donor-onboard img {
+    height: 80%;
+    float: right;
+  }
+
+  #onboard-info {
+    box-sizing: border-box;
+    padding-left: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+  }
+
+  #section6 {
+    display: flex;
+    min-height: auto; /* Allow the background image to shrink */
+    height: auto;
+    padding: 24px; /* Reduce outer padding */
+  }
+
+  /* 1. Center the container and turn on Grid Mode */
+  #section6-inner {
+    margin: 0; /* Remove extra margins */
+    align-self: center; /* Fixes horizontal centering (was flex-end) */
+    width: 95%; /* Responsive width */
+    height: auto; /* Allow height to shrink */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 50% Form | 50% Text */
+    align-items: center; /* Vertically center content */
+    gap: 40px; /* Space between form and text */
+  }
+
+  #section6-container {
+    height: auto; /* Shrink to fit content */
+    min-height: 0; /* Override any inherited minimums */
+    padding: 0px 24px; /* Add breathing room top/bottom */
+  }
+
+  /* 2. Move the Form to the Left (Column 1) */
+  #section6-form {
+    grid-column: 1;
+    grid-row: 1 / 10; /* Force it to span vertically so it sits next to all text */
+    margin-top: -200px;
+    width: 100%;
+    min-height: auto; /* Allow height to shrink */
+    padding: 10px;
+  }
+
+  /* 3. Move Layout Text to the Right (Column 2) */
+  #section6-inner h1,
+  #section6-inner h2,
+  #section6-inner p {
+    grid-column: 2;
+    text-align: left; /* Align text neatly */
+    margin: 10px 0; /* Clean up spacing */
+  }
+
+  /* 4. COMPACTING THE FORM (Vertical Shrink) */
+
+  /* Reduce the massive textarea height */
+  #section6-form textarea {
+    height: 350px; /* Override the 'rows=24' HTML attribute */
+
+    margin: 8px 0; /* Reduce margins */
+  }
+
+  /* Shrink spacing around inputs */
+  #section6-form input {
+    margin: 8px 0; /* Reduced from 20px */
+  }
+
+  /* Reduce padding inside the white box */
+  #section6-form-blockA,
+  #section6-form-blockB {
+    padding: 16px; /* Reduced from 24px */
+  }
+
+  #submit-button,
+  #blog-button {
+    padding: 8px 16px; /* Reduce padding (was 12px 24px) */
+    font-size: 0.9em; /* Make text slightly smaller */
+    width: fit-content; /* Stop them from stretching full width */
+    min-width: 0; /* Allow them to shrink below default limits */
+  }
+
+  #section6-inner h2 {
+    text-align: center; /* Override the 'left' align we set earlier */
+    width: 100%; /* Ensure it spans the column to center properly */
+    margin-top: 20px; /* Add separation from the main text */
+  }
+
+  #blog-button {
+    display: block; /* Treat as a block to allow centering */
+    margin: 12px auto; /* Top/Bottom margin 12px, Auto Left/Right centers it */
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+  }
+
+  /* Optional: Adjust the form submit button alignment if needed */
+  #submit-button {
+    margin: 12px 0;
+    align-self: center; /* Aligns it to the left of the form input column */
+  }
+
+  /* 1. Remove the massive fixed height */
+  #section7-container {
+    height: auto; /* Allow it to shrink to fit the logos */
+    padding: 40px 0; /* Add comfortable spacing top/bottom */
+  }
+
+  /* 2. Allow the background section to shrink */
+  #section7 {
+    min-height: auto; /* Remove the 40vh minimum */
+    padding: 100px 0; /* Reduce outer padding */
+  }
+
+  /* 3. OPTIONAL: Shrink the scrolling logos to make it even more compact */
+  .marquee,
+  .marquee .lining {
+    height: 150px; /* Reduced from 250px */
+  }
+
+  .marquee .partner-logo {
+    height: 120px; /* Reduced from 200px */
+    width: 120px; /* Keep aspect ratio square */
+    margin: 15px 40px; /* Reduce spacing between logos */
+  }
+
+  /***********************************************************/
+
+  /* 1. Force the content stacks to be responsive */
+  .content-stack {
+    width: 90%; /* Constrain width to 90% of the viewport */
+    margin-left: auto; /* Ensure they stay centered */
+    margin-right: auto;
+    height: auto; /* Allow height to grow if text wraps */
+    min-height: 0; /* Reset minimum height to prevent gaps */
+  }
+
+  /* 2. Optional: Ensure the full-width background sections don't cause scroll */
+  .fullwidth-stack {
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't expand width */
+  }
+
+  /***********************************************************/
+  /****************** WHO WE ARE PAGE ************************/
+  /***********************************************************/
+
+  #wwa-hero-text {
+    margin-top: 15vh; /* Even higher on small screens if needed */
+  }
+
+  #wwa-hero-text p {
+    width: 70%; /* Make it even wider on small screens if needed */
+  }
+
+  #wwa-hero-text h1 {
+    margin-bottom: 10px; /* Reduce gap below the title */
+  }
+
+  #wwa-role-inner1 {
+    height: 450px; /* Reduced from 550px */
+  }
+
+  #wwa-role {
+    min-height: auto; /* Allow the section to shrink */
+    margin-top: 50px; /* Reduce the gap above the section (was 100px) */
+  }
+
+  #wwa-role-inner2 {
+    padding: 24px; /* Reduced from 36px */
+  }
+
+  /* 1. Make the container hug the text content */
+  #curated-inner {
+    width: fit-content; /* Shrinks box to match text width */
+    max-width: 60%; /* Prevents it from getting too wide on screen */
+    margin-right: 50px; /* Reduce margin to pull it closer to the edge */
+  }
+
+  /* 2. Shrink the Heading */
+  #curated-inner h2 {
+    font-size: 1.5em; /* Reduced from 2em */
+  }
+
+  /* 3. Shrink the Paragraph */
+  #curated-inner p {
+    font-size: 1.1em; /* Reduced from 1.5em */
+  }
+
+  /* 1. Shrink the huge map height */
+  #wwa-map iframe {
+    min-height: 550px; /* Reduced drastically from 800px */
+    height: 100%; /* Ensure it fills the container */
+  }
+
+  /* 2. Compact the Form Container */
+  #wwa-form {
+    padding: 24px; /* Reduced from 36px */
+  }
+
+  /* 3. Remove excess space around the Title */
+  #wwa-form h2 {
+    padding: 20px; /* Reduced from 48px */
+    font-size: 1.8em; /* Optional: slightly smaller text */
+  }
+
+  /* 4. Force the Textarea to be shorter */
+  #wwa-form textarea {
+    height: 150px; /* Override the HTML 'rows=10' */
+    margin-bottom: 0; /* Remove extra bottom space */
+  }
+
+  /***********************************************************/
+  /****************** EGG DONORS PAGE ************************/
+  /***********************************************************/
+
+  #donors_intro-text {
+    /* Pull it even higher on small screens */
+    margin-top: 35vh;
+
+    /* On laptops, center it or barely shift it */
+    margin-left: -10vw;
+    width: 80%;
+  }
+
+  /* Optional: Adjust the font size if the title is too big */
+  #donors_intro-text h1 {
+    font-size: 3em;
+    margin-bottom: 10px; /* Reduce gap below the title */
+  }
+
+  #donors_intro-text h1 br {
+    content: " "; /* Replaces the break with a space character */
+    display: inline-block; /* Required for the content property to work on br sometimes */
+    width: 0.3em; /* Adds a small gap effectively acting as a space */
+    height: auto;
+  }
+
+  #donors_intro-text p {
+    width: 50%; /* Make it even wider on small screens if needed */
+  }
+
+  /***********************************************************/
+  /*************** INTENDED PARENTS PAGE *********************/
+  /***********************************************************/
+
+  /* Override the specific rules for the Intended Parents hero text */
+  #fip-hero-text {
+    /* 1. Reset the layout to match the Index page */
+    align-self: center; /* Stop pushing it to the right (was flex-end) */
+    text-align: left; /* Ensure text aligns left */
+
+    /* 2. Fix the sizing */
+    min-width: 0; /* Remove the huge 1000px width forcing it open */
+    width: 70%; /* responsive width */
+
+    /* 3. Position it to the Left */
+    margin-left: -10vw; /* Pull it left (adjust between -10vw and -20vw) */
+    margin-top: 15vh; /* Use standard spacing from top */
+  }
+
+  #fip-hero-text h1 {
+    margin-bottom: 0;
+  }
+
+  /* Optional: Fix the subtitle width if it gets too narrow */
+  #fip-hero-text p {
+    width: 60%;
+    margin-top: 0;
+  }
+
+  /* 1. Reduce the parent padding to let content move left */
+  #fip-exclusive {
+    padding: 0 48px; /* Reduced from 256px */
+  }
+
+  /* 2. Your existing inner adjustments (with a safety check) */
+  #fip-exclusive-inner {
+    width: fit-content;
+    max-width: 40%;
+
+    /* Ensure it sticks to the left */
+    align-self: flex-start;
+    margin-left: 0;
+
+    /* Optional: Add a small background blur for better readability */
+    backdrop-filter: blur(5px);
+  }
+
+  /* 3. Keep your font adjustments */
+  #fip-exclusive-inner h2 {
+    font-size: 1.5em;
+  }
+
+  #fip-exclusive-inner p {
+    font-size: 1.1em;
+  }
+
+  /* Force the brown section to stay tall enough to show the baby image */
+  #fip-brown {
+    min-height: 400px; /* Adjust this value (300px - 500px) to taste */
+    height: auto; /* Allow it to grow if text wraps */
   }
 }
