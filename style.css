@@ -1071,6 +1071,7 @@ footer {
   height: 150px;
   z-index: 2;
   color: white;
+  border: 2px dashed yellowgreen;
 }
 
 #donors_intro-text h1 {
@@ -2138,6 +2139,20 @@ input[type="tel"] {
 
   .hero-section_intro-text {
     margin-top: 40vh;
+  }
+
+  #donor-text {
+    margin-left: 100px;
+    width: 90%;    
+  }
+
+  #donor-text h1, p {    
+    margin: 0px;
+  }
+
+  #donor-text p {
+    width: 40%;
+    align-content: start;
   }
 
   .hero-section_intro-text h1 {
