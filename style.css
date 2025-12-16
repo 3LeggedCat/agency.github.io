@@ -2052,6 +2052,530 @@ input[type="tel"] {
   width: min(1800px, 90%);
 }
 
+/***************************************************/
+/******************* BLOG PAGE *********************/
+/***************************************************/
+
+#blog-hero {
+  background: url(images/hero_bg_blog.jpg) center / cover no-repeat;
+  flex-direction: column;
+}
+
+#blog-hero-text {
+  align-self: flex-end;
+  align-items: start;
+  width: min-content;
+  min-width: 1000px;
+  margin-top: -150px;
+  /* border: 2px dashed magenta; */
+}
+
+#blog-hero-text h1 {
+  color: black;
+}
+
+#blog-hero-text p {
+  width: 70%;
+  height: 250px;
+  background: url(images/path_hero_fip.png) center / contain no-repeat;
+  color: black;
+}
+
+/*****************************/
+
+#blog-container {
+  width: min(1400px, 90%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 80px;
+}
+
+/* --- Filter Bar --- */
+.blog-filter-bar {
+  display: flex;
+  gap: 30px;
+  margin: 40px 0 60px 0;
+  border-bottom: 2px solid #b7c4c8ff;
+  padding-bottom: 15px;
+}
+
+.filter-btn {
+  font-family: "OpenSans";
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.filter-btn:hover,
+.active-filter {
+  color: deeppink !important;
+}
+
+/* --- Placeholder Icon CSS --- */
+.placeholder-bg {
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.placeholder-bg::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: url(images/logo_footer.png) center / contain no-repeat;
+  opacity: 0.2;
+  filter: grayscale(100%);
+}
+
+/* --- Filtering Logic Classes --- */
+.filter-item {
+  display: none; /* Hidden by default */
+}
+
+.show-item {
+  display: flex !important; /* Shown when selected */
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Featured Article --- */
+.blog-featured {
+  width: 100%;
+  min-height: 450px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin-bottom: 60px;
+}
+
+.blog-featured-image {
+  flex: 1.5;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #eee; /* Fallback color */
+  background-image: url("images/emilysarah.jpg");
+}
+
+.blog-featured-content {
+  flex: 1;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.blog-tag {
+  background-color: #f4e3d7ff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-family: "OpenSans";
+  font-weight: bold;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.blog-featured-content h2 {
+  font-family: "NovesseMain";
+  font-size: 2.5em;
+  line-height: 1.1;
+  margin: 0 0 20px 0;
+  color: black;
+}
+
+.blog-featured-content p {
+  font-family: "Caslon3";
+  font-size: 1.3em;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* --- Blog Grid --- */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+}
+
+.blog-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-direction: column;
+  height: 100%;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.blog-card-image {
+  height: 250px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #eee; /* Fallback color */
+}
+
+.blog-card-content {
+  padding: 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-text {
+  font-family: "OpenSans";
+  font-weight: bold;
+  font-size: 0.8em;
+  color: deeppink;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.blog-card-content h3 {
+  font-family: "Caslon3";
+  font-size: 1.5em;
+  margin: 0 0 15px 0;
+  line-height: 1.2;
+}
+
+.blog-card-content p {
+  font-family: "OpenSans";
+  font-size: 1em;
+  color: #555;
+  margin: 0 0 20px 0;
+  flex-grow: 1;
+}
+
+.read-more {
+  font-family: "OpenSans";
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  font-size: 0.95em;
+  transition: color 0.2s;
+}
+
+.read-more:hover {
+  color: deeppink;
+}
+
+/*****************************************************/
+/******************* PARTNERS ************************/
+/*****************************************************/
+
+#partners-hero {
+  background: url(images/hero_bg_partners.png) center / cover no-repeat;
+  flex-direction: column;
+}
+
+#partners-hero-text {
+  align-items: start;
+  width: min-content;
+  min-width: 1000px;
+  margin-top: 300px;
+  /* border: 2px dashed magenta; */
+}
+
+#partners-hero-text p {
+  width: 80%;
+  background: url(images/path_hero_wwa.png) center / 100% 100% no-repeat;
+}
+
+/**********/
+
+/* --- Section 1: Intro Stack --- */
+#partners-intro-stack {
+  margin-top: 50px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+#partners-intro-text {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 60px;
+  text-align: left;
+}
+
+#partners-intro-text h1 {
+  font-family: "NovesseMain";
+  font-size: 3em;
+  color: black;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+#partners-intro-text p {
+  font-family: "OpenSans";
+  font-size: 1.3em;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+#partners-intro-img {
+  flex: 1;
+  height: 600px;
+  background-color: #eee;
+  /* Replace with your real image later */
+  background-image: url("images/image5.png");
+  background-size: cover;
+  background-position: center;
+}
+
+/* --- Section 2: Benefits Grid --- */
+#partners-benefits-section {
+  width: 100%;
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f3fcffff; /* Light blue tint matching other pages */
+  margin-top: 60px;
+}
+
+#partners-benefits-section h1 {
+  font-family: "NovesseMain";
+  font-size: 3em;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+#partners-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  width: min(1400px, 90%);
+  flex-wrap: wrap;
+}
+
+.partner-benefit-card {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Icons using your existing assets or placeholders */
+.icon-medical {
+  background-image: url("images/medical-icon.png");
+}
+.icon-logistics {
+  background-image: url("images/travel_icon.png");
+}
+.icon-compliance {
+  background-image: url("images/fda_icon.png");
+}
+
+.partner-benefit-card h3 {
+  font-family: "Caslon3";
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.partner-benefit-card p {
+  font-family: "OpenSans";
+  font-size: 1.1em;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* --- Section 3: Split Types --- */
+#partner-types-stack {
+  margin-top: 60px;
+  gap: 30px;
+  align-items: stretch; /* Makes both boxes equal height */
+}
+
+.partner-split-col {
+  flex: 1;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+/* Add generic dark overlay so text pops */
+.partner-split-col::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* Ensure content sits above overlay */
+.partner-split-col h2,
+.partner-split-col p,
+.partner-split-col ul,
+.partner-split-col .black-button {
+  position: relative;
+  z-index: 2;
+}
+
+#for-clinics {
+  background-image: url("images/image2.jpg"); /* Reuse existing image */
+}
+
+#for-agencies {
+  background-image: url("images/image6.png"); /* Reuse existing image */
+}
+
+.partner-split-col h2 {
+  font-family: "NovesseMain";
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.partner-split-col p {
+  font-family: "OpenSans";
+  font-size: 1.3em;
+  margin-bottom: 20px;
+}
+
+.partner-split-col ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+
+.partner-split-col ul li {
+  font-family: "OpenSans";
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+/* --- Section 4: CTA --- */
+#partners-cta {
+  width: 100%;
+  margin-top: 60px;
+  padding: 80px 0;
+  background: url("images/waves_background_1.png") center / cover no-repeat;
+  display: flex;
+  justify-content: center;
+}
+
+#partners-cta-inner {
+  width: min(800px, 90%);
+  background-color: white;
+  padding: 50px;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+#partners-cta-inner h2 {
+  font-family: "NovesseMain";
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+#partners-cta-inner p {
+  font-family: "OpenSans";
+  font-size: 1.3em;
+  margin-bottom: 30px;
+}
+
+#partners-form-container {
+  width: 100%;
+  max-width: 500px;
+}
+  
+/* --- PARTNERS PAGE MOBILE --- */
+
+#partners-intro-stack,
+#partner-types-stack {
+  flex-direction: column !important;
+  height: auto !important;
+  width: 95% !important;
+}
+
+#partners-intro-text {
+  padding: 30px !important;
+}
+
+#partners-intro-img {
+  height: 300px !important;
+  width: 100% !important;
+  flex: none !important;
+}
+
+#partners-grid {
+  flex-direction: column !important;
+  padding: 0 20px;
+}
+
+.partner-split-col {
+  width: 100% !important;
+  margin-bottom: 20px;
+  padding: 30px !important;
+  box-sizing: border-box;
+}
+
+#partners-cta-inner {
+  width: 90% !important;
+  padding: 30px 20px !important;
+}
+
 /*****************************************************/
 /***************For MDPI laptops *********************/
 /*****************************************************/
@@ -2143,10 +2667,11 @@ input[type="tel"] {
 
   #donor-text {
     margin-left: 100px;
-    width: 90%;    
+    width: 90%;
   }
 
-  #donor-text h1, p {    
+  #donor-text h1,
+  p {
     margin: 0px;
   }
 

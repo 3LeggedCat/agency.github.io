@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Novesse Fertility</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="mobile.css" />
+    <link rel="stylesheet" href="mobile-navbar.css" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="images/favicon/site.webmanifest" />
+    <script>
+      /*to prevent Firefox FOUC, this must be here*/
+      let FF_FOUC_FIX;
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "brand-pink": "deeppink",
+              "brand-beige": "#f4e3d7",
+              "brand-dark": "#1c2422",
+              "brand-gray": "#dde3e8",
+            },
+            fontFamily: {
+              novesse: ["NovesseMain", "serif"],
+              sans: ["OpenSans", "sans-serif"],
+              caslon: ["Caslon3", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <header id="header">
+      <div id="container">
+        <a href="index.html"><div id="nav-logo"></div></a>
+        <div id="nav-items">
+          <ul>
+            <li>
+              <a href="who_we_are.html">Who We Are</a>
+            </li>
+            <li><a href="egg_donors.html">Egg Donation</a></li>
+            <li>
+              <a href="intended_parents.html" style="color: deeppink"
+                >Intended Parents</a
+              >
+            </li>
+            <li><a>Our Partners</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <a href="login.html"><div id="signin-button">Sign In</div></a>
+      </div>
+    </header>
+
+    <div id="content">
+      <div class="hero-section" id="partners-hero">
+        <div class="hero-section_intro-text" id="partners-hero-text">
+          <h1>Meet our<br />Trusted Partners</h1>
+          <p>
+            Science provides the method, but partnership brings the heart; The
+            trust you place in our hands becomes the foundation of every
+            success.
+          </p>
+        </div>
+        <!-- <div class="hero-section_player-wrapper">
+          <video autoplay muted loop class="hero_video-player">
+            <source src="videos/mother_n_baby.mp4" type="video/mp4" />
+          </video> 
+        </div>-->
+      </div>
+
+      <div class="general-content">
+        <div
+          class="w-full max-w-[1400px] mx-auto px-6 py-20 flex flex-col gap-24"
+        >
+          <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+            <div class="w-full md:w-1/2 space-y-6">
+              <h2
+                class="font-novesse text-4xl md:text-5xl leading-tight text-black"
+              >
+                A Standard <br /><span class="text-brand-pink"
+                  >Raised Higher</span
+                >
+              </h2>
+              <p
+                class="font-caslon text-xl md:text-2xl text-gray-700 leading-relaxed"
+              >
+                "Excellence is not just a goal, but a shared promise. The future
+                our patients envision is a mission we achieve together."
+              </p>
+              <p class="font-sans text-gray-500 leading-loose">
+                We collaborate with top-tier fertility clinics, agencies, and
+                legal professionals to ensure that every donation is medically
+                sound, legally secure, and emotionally supported.
+              </p>
+            </div>
+            <div
+              class="w-full md:w-1/2 h-[500px] bg-gray-200 rounded-xl overflow-hidden relative group"
+            >
+              <img
+                src="images/medical_team.jpg"
+                alt="Medical Team"
+                class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition duration-500"
+              ></div>
+            </div>
+          </div>
+
+          <div class="w-full">
+            <div class="text-center mb-16 max-w-2xl mx-auto">
+              <h2 class="font-novesse text-4xl mb-4">Why Partner With Us?</h2>
+              <div class="h-1 w-24 bg-brand-pink mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div
+                class="bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 flex flex-col items-center text-center group"
+              >
+                <div
+                  class="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300"
+                >
+                  <svg
+                    class="w-8 h-8 text-black"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 class="font-caslon text-2xl mb-4 text-gray-900">
+                  Rigorous Screening
+                </h3>
+                <p class="font-sans text-gray-500 leading-relaxed">
+                  Comprehensive medical, genetic, and psychological evaluations
+                  performed before donors ever reach your database.
+                </p>
+              </div>
+
+              <div
+                class="bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 flex flex-col items-center text-center group"
+              >
+                <div
+                  class="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300"
+                >
+                  <svg
+                    class="w-8 h-8 text-black"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 class="font-caslon text-2xl mb-4 text-gray-900">
+                  Seamless Logistics
+                </h3>
+                <p class="font-sans text-gray-500 leading-relaxed">
+                  We handle all travel, local monitoring, and legal coordination
+                  so you can focus entirely on patient care.
+                </p>
+              </div>
+
+              <div
+                class="bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 flex flex-col items-center text-center group"
+              >
+                <div
+                  class="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300"
+                >
+                  <svg
+                    class="w-8 h-8 text-black"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 class="font-caslon text-2xl mb-4 text-gray-900">
+                  Full Compliance
+                </h3>
+                <p class="font-sans text-gray-500 leading-relaxed">
+                  Strict adherence to FDA regulations and ASRM guidelines,
+                  ensuring legal safety for all parties involved.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 rounded-3xl overflow-hidden shadow-2xl"
+          >
+            <div
+              class="relative bg-brand-dark p-12 md:p-16 flex flex-col justify-center items-start text-white group overflow-hidden"
+            >
+              <div class="absolute inset-0 bg-gray-800 opacity-50 z-0"></div>
+              <div class="relative z-10 space-y-6">
+                <h3 class="font-novesse text-3xl md:text-4xl text-brand-pink">
+                  For IVF Clinics
+                </h3>
+                <p class="font-sans text-lg opacity-90">
+                  We understand that your lab requires precision. We deliver
+                  consistent, high-quality outcomes.
+                </p>
+                <ul class="space-y-3 font-sans opacity-80">
+                  <li class="flex items-center">
+                    <span class="w-2 h-2 bg-brand-pink rounded-full mr-3"></span
+                    >Detailed AMH & AFC Data
+                  </li>
+                  <li class="flex items-center">
+                    <span class="w-2 h-2 bg-brand-pink rounded-full mr-3"></span
+                    >Previous Cycle Review
+                  </li>
+                  <li class="flex items-center">
+                    <span class="w-2 h-2 bg-brand-pink rounded-full mr-3"></span
+                    >Stimulation Adherence
+                  </li>
+                </ul>
+                <button
+                  class="mt-4 px-8 py-3 border border-white text-white font-bold hover:bg-brand-pink hover:border-brand-pink hover:text-white transition duration-300 rounded-lg"
+                >
+                  Refer a Patient
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="relative bg-gray-900 p-12 md:p-16 flex flex-col justify-center items-start text-white group overflow-hidden"
+            >
+              <div class="absolute inset-0 bg-gray-700 opacity-50 z-0"></div>
+              <div class="relative z-10 space-y-6">
+                <h3 class="font-novesse text-3xl md:text-4xl text-brand-beige">
+                  For Agencies
+                </h3>
+                <p class="font-sans text-lg opacity-90">
+                  Expand your pool of diverse, qualified candidates with our
+                  partner network.
+                </p>
+                <ul class="space-y-3 font-sans opacity-80">
+                  <li class="flex items-center">
+                    <span
+                      class="w-2 h-2 bg-brand-beige rounded-full mr-3"
+                    ></span
+                    >Transparent Compensation
+                  </li>
+                  <li class="flex items-center">
+                    <span
+                      class="w-2 h-2 bg-brand-beige rounded-full mr-3"
+                    ></span
+                    >Fast-track Matching
+                  </li>
+                  <li class="flex items-center">
+                    <span
+                      class="w-2 h-2 bg-brand-beige rounded-full mr-3"
+                    ></span
+                    >Dedicated Case Managers
+                  </li>
+                </ul>
+                <button
+                  class="mt-4 px-8 py-3 border border-white text-white font-bold hover:bg-brand-beige hover:border-brand-beige hover:text-black transition duration-300 rounded-lg"
+                >
+                  View Database
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="relative w-full bg-brand-beige rounded-3xl p-12 md:p-20 text-center overflow-hidden"
+          >
+            <div
+              class="absolute -top-24 -left-24 w-64 h-64 bg-white opacity-20 rounded-full blur-3xl"
+            ></div>
+            <div
+              class="absolute -bottom-24 -right-24 w-64 h-64 bg-brand-pink opacity-10 rounded-full blur-3xl"
+            ></div>
+
+            <div class="relative z-10 max-w-3xl mx-auto space-y-8">
+              <h2 class="font-novesse text-4xl md:text-5xl text-black">
+                Join Our Network
+              </h2>
+              <p class="font-caslon text-xl text-gray-800">
+                Ready to elevate the standard of care? Let's discuss how we can
+                work together to build families.
+              </p>
+
+              <div
+                class="flex flex-col md:flex-row gap-4 justify-center items-center w-full"
+              >
+                <input
+                  type="text"
+                  placeholder="Organization Name"
+                  class="w-full md:flex-1 !h-14 !m-0 !px-6 rounded-lg !border-none !bg-white focus:ring-2 focus:ring-black outline-none font-sans text-base shadow-sm"
+                />
+
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  class="w-full md:flex-1 !h-14 !m-0 !px-6 rounded-lg !border-none !bg-white focus:ring-2 focus:ring-black outline-none font-sans text-base shadow-sm"
+                />
+
+                <button
+                  class="w-full md:w-auto !h-14 px-8 bg-black text-white font-bold rounded-lg hover:bg-brand-pink transition duration-300 shadow-lg whitespace-nowrap flex items-center justify-center"
+                >
+                  Request Partnership Info
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-wrapper">
+        <div class="footer-column logo-column">
+          <img src="images/logo_footer.png" alt="Novesse" class="footer-logo" />
+        </div>
+
+        <div class="footer-links-group">
+          <div class="footer-column">
+            <h3>Who We Are</h3>
+            <ul>
+              <li><a href="who_we_are.html">Our Story</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Testimonials</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Egg Donation</h3>
+            <ul>
+              <li><a href="egg_donors.html">Requirements</a></li>
+              <li><a href="#">The Process</a></li>
+              <li><a href="#">Application for Egg Donors</a></li>
+              <li><a href="#">Sperm Donors</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Follow Us</h3>
+            <ul class="social-links">
+              <li class="social-item">
+                <span class="icon insta"></span>Instagram
+              </li>
+              <li class="social-item"><span class="icon fb"></span>Facebook</li>
+              <li class="social-item"><span class="icon yt"></span>Youtube</li>
+              <li class="social-item">
+                <span class="icon blue"></span>Bluesky
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Customer Support</h3>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Chat with Us</a></li>
+              <li><a href="#">Get in Touch</a></li>
+              <li><a href="#">Terms & Conditions</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="language-flags">
+            <img src="images/us_flag.png" alt="English" class="flag" />
+            <img src="images/spanish_flag.png" alt="Spanish" class="flag" />
+          </div>
+          <p class="copyright">Copyright 2025 © Novesse Fertility</p>
+        </div>
+      </div>
+    </footer>
+    <script src="navbar.js"></script>
+    <script src="mobile-navbar.js"></script>
+  </body>
+</html>
